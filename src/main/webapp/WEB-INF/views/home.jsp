@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>
-	A ver si ya va Javi 
+	A ver si ya va Jose
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
