@@ -23,14 +23,14 @@
 						id="bs-sidebar-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
 								data-toggle="dropdown"><img src="resources/farmacia.png" width="60%"/></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
 
-									<li><a href="#">Modificar</a></li>
+									<li><a href="modificaProducto">Modificar</a></li>
 
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
 								data-toggle="dropdown"><img
 									src="resources/veterinaria.png"  width="60%"/> <span class="caret"></span></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
@@ -38,7 +38,7 @@
 									<li><a href="#">Modificar</a></li>
 
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
 								data-toggle="dropdown"><img src="resources/gasolinera.png"   width="60%"/> <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
@@ -46,7 +46,7 @@
 									<li><a href="#">Modificar</a></li>
 
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
 								data-toggle="dropdown"><img src="resources/ortopedia.png"   width="60%"/> <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
@@ -54,7 +54,7 @@
 									<li><a href="#">Modificar</a></li>
 
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
 								data-toggle="dropdown"><img src="resources/paraFarmacia.png"   width="60%"/> <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
@@ -62,7 +62,7 @@
 									<li><a href="#">Modificar</a></li>
 
 								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
 								data-toggle="dropdown"><img src="resources/dentales.png"  width="60%"/><span
 									class="caret"></span></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
@@ -74,7 +74,7 @@
 								data-toggle="dropdown"><img src="resources/medico.png"  width="60%"/> <span
 									class="caret"></span></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
-									<li><a href="#">Modificar</a></li>
+									<li><a href="modificaProducto">Modificar</a></li>
 
 								</ul></li>
 
@@ -88,9 +88,10 @@
 
 			<div class="navbar_top">
 				<h1>
-					<a href="#" class="btn btn-primary" role="button">Añadir
-						Producto</a> <a href="#" class="btn btn-primary" role="button">Modificar
-						Producto</a> <a href="#" class="btn btn-primary" role="button">Eliminar
+					<a href="altaProducto" class="btn btn-primary" role="button">Añadir
+						Producto</a> <a href="modificaProducto" class="btn btn-primary" role="button">Modificar
+						Producto</a> <a href="eliminaProducto" class="btn btn-primary" role="button">Eliminar
+						Producto</a><a href="JSON" class="btn btn-primary" role="button">Dame JSON
 						Producto</a>
 				</h1>
 
