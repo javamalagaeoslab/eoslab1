@@ -6,13 +6,6 @@
 
 </head>
 <body>
-
-<<<<<<< HEAD
-<a href="altaProducto" ><p>Añadir producto</p></a>
-<a href="modificaProducto" ><p>Modificar producto</p></a>
-<a href="eliminaProducto" ><p>Eliminar producto</p></a>
-<a href="JSON" ><p>Dame JSON</p></a>
-=======
 	<div class="wrapper">
 		<div class="col1">
 			<nav class="navbar navbar-default sidebar" role="navigation">
@@ -106,9 +99,7 @@
 
 	</div>
 
-
->>>>>>> 125d0e98521d35c928dd4eeb2fd4c5ed6556a629
-
 	${mensaje}
+	
 </body>
 </html>

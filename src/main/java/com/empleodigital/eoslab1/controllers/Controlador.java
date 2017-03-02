@@ -111,27 +111,6 @@ public class Controlador {
 			sql ="SELECT * FROM productos WHERE productos.id_categorias=? AND productos.ref=?";
 			
 			//Realizo la consulta que me devuelve el producto con esa referencia
-<<<<<<< HEAD
-			Producto seleccion = jdbc.queryForObject(
-					sql,
-					new BeanPropertyRowMapper<Producto>(Producto.class),
-					new Object[]{categoria, ref}
-					);
-			
-			//Añado el producto a la vista y redirigo al formulario que corresponda
-			mav.addObject("seleccion", seleccion);
-			
-			if (pagina.equals("actualiza")){
-				
-				mav.setViewName("updateProducto");
-				
-			}else{
-				
-				mav.setViewName("removeProducto");
-				
-			}
-			
-=======
 			try {
 				Producto seleccion = jdbc.queryForObject(
 						sql,
@@ -141,12 +120,22 @@ public class Controlador {
 				
 				//Añado el producto a la vista y redirigo al formulario de actualización
 				mav.addObject("seleccion", seleccion);
-				mav.setViewName("updateProducto");				
+				
+				if (pagina.equals("actualiza")){
+					
+					mav.setViewName("updateProducto");
+					
+				}else{
+					
+					mav.setViewName("removeProducto");
+					
+				}
+								
 			} catch (Exception e) {
 				mav.setViewName("updateProducto");
 				mav.addObject("mensaje", "Producto no encontrado");
 			}
->>>>>>> 125d0e98521d35c928dd4eeb2fd4c5ed6556a629
+			
 			return mav;
 			
 		}
