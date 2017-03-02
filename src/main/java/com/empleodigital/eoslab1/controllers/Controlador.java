@@ -70,10 +70,14 @@ public class Controlador {
 			
 			//Ejecuto la consuta
 			String sql="INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
-			
-			mav.setViewName("home");
-			mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");
+			try {
+				jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
+				mav.setViewName("home");
+				mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");				
+			} catch (Exception e) {
+				mav.setViewName("home");
+				mav.addObject("mensaje", "El producto no se ha podido agregar");
+			}
 			return mav;
 	
 	}
