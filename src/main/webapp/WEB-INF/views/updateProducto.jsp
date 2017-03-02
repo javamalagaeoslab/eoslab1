@@ -99,12 +99,12 @@
 			<option value="7">Centro médico</option>
 	</select>
 	<p>Referencia: <input type="text" name="ref" /></p>
-<<<<<<< HEAD
+
 	<p>OCULTAR: <input type="text" name="page" value="actualiza" />
-=======
+
 	<p>${mensaje}</p>
->>>>>>> 125d0e98521d35c928dd4eeb2fd4c5ed6556a629
-	<p><input type="submit" value="Enviar" /></p>
+
+	<p><input type="submit" value="Buscar" /></p>
 
 </form>
 
@@ -147,17 +147,12 @@
 			<option value="6">Clínicas dentales</option>
 			<option value="7">Centro médico</option>
 	</select>
-	<p><a href="#" class="bt btn btn-primary " role="button">Actualizar Producto</a>
- <a href="#" class="bt btn btn-primary " role="button">Cancelar</a></p>
+	<p>
+	<input type="submit"  class="bt btn btn-primary" value="Modificar" />
+ 	<a href="cancelar" class="bt btn btn-primary " role="button">Cancelar</a></p>
 	
 </form>
 
-<<<<<<< HEAD
-=======
-
-
-
-
 
 
 
@@ -165,8 +160,6 @@
 
 </div>
 
-
->>>>>>> 125d0e98521d35c928dd4eeb2fd4c5ed6556a629
 </body>
 
 </html>

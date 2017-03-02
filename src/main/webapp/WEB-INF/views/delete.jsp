@@ -86,10 +86,10 @@
 </div>
 
 <div class="col2" >
-  <h2 class="title">Modificar Producto</h2>
+  <h2 class="title">Eliminar Producto</h2>
 
 <h3>Indica la categoria y la referencia del producto</h3>
-<form action="borrar" method="post">
+<form action="buscaproducto" method="post">
   <p>Categoría
     <select name="categoria">
       <option value="1">Cruces de farmacia</option>
@@ -101,8 +101,11 @@
       <option value="7">Centro médico</option>
   </select>
   <p>Referencia: <input type="text" name="ref" /></p>
-  <p><input type="submit" value="Enviar" /></p>
-
+  <p>OCULTAR: <input type="text" name="page" value="borra" />
+  <p>${mensaje}</p>
+  <p><input type="submit" value="Buscar" /></p>
+</form>
+<form action="borrar" method="post">
 
   <p>id del producto: <input type="text" name="id" value="${seleccion.getId()}" readonly></p>
   <p>Nombre: <input type="text" name="descripcion_nombre" value="${seleccion.getDescripcion_nombre()}" readonly/></p>

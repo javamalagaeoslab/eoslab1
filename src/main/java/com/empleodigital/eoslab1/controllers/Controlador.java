@@ -16,7 +16,7 @@ public class Controlador {
 	
 	//Lo primero en cargar debe ser el controlador y redirigir al home
 	//Como no realizo ninguna acción más haya que redirigir no necesito ModelAndView
-	@RequestMapping("/")
+	@RequestMapping({"/","/cancelar"})
 	public String landing(){
 
 		return "home";
@@ -127,12 +127,22 @@ public class Controlador {
 					
 				}else{
 					
-					mav.setViewName("removeProducto");
+					mav.setViewName("delete");
 					
 				}
 								
 			} catch (Exception e) {
-				mav.setViewName("updateProducto");
+				
+				if (pagina.equals("actualiza")){
+					
+					mav.setViewName("updateProducto");
+					
+				}else{
+					
+					mav.setViewName("delete");
+					
+				}
+				
 				mav.addObject("mensaje", "Producto no encontrado");
 			}
 			
@@ -192,11 +202,11 @@ public class Controlador {
 	
 	}
 	
-	//Actualizar un producto
+	//Elimina un producto
 	@RequestMapping("/eliminaProducto")
 	public String deleteP(){
 		
-		return "removeProducto";
+		return "delete";
 		
 	}
 	

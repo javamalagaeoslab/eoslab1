@@ -252,8 +252,8 @@
 						<option value="7">Centro médico</option>
 					</select>
 				<p>
-					<a href="#" class="bt btn btn-primary " role="button">Añadir
-						Producto</a> <a href="#" class="bt btn btn-primary " role="button">Cancelar</a>
+					<input type="submit"  class="bt btn btn-primary" value="Añadir" />
+					<a href="cancelar" class="bt btn btn-primary " role="button">Cancelar</a>
 				</p>
 			</form>
 
