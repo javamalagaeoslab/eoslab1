@@ -70,10 +70,14 @@ public class Controlador {
 			
 			//Ejecuto la consuta
 			String sql="INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
-			
-			mav.setViewName("home");
-			mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");
+			try {
+				jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
+				mav.setViewName("home");
+				mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");				
+			} catch (Exception e) {
+				mav.setViewName("home");
+				mav.addObject("mensaje", "El producto no se ha podido agregar");
+			}
 			return mav;
 	
 	}
@@ -103,18 +107,23 @@ public class Controlador {
 			
 			//Ejecuto la consulta que me devuelve el producto a modificar
 			String sql;
-			sql ="SELECT * FROM productos WHERE productos.id_categorias=? AND productos.ref=?;";
+			sql ="SELECT * FROM productos WHERE productos.id_categorias=? AND productos.ref=?";
 			
 			//Realizo la consulta que me devuelve el producto con esa referencia
-			Producto seleccion = jdbc.queryForObject(
-					sql,
-					new BeanPropertyRowMapper<Producto>(Producto.class),
-					new Object[]{categoria, ref}
-					);
-			
-			//Añado el producto a la vista y redirigo al formulario de actualización
-			mav.addObject("seleccion", seleccion);
-			mav.setViewName("updateProducto");
+			try {
+				Producto seleccion = jdbc.queryForObject(
+						sql,
+						new BeanPropertyRowMapper<Producto>(Producto.class),
+						new Object[]{categoria, ref}
+						);
+				
+				//Añado el producto a la vista y redirigo al formulario de actualización
+				mav.addObject("seleccion", seleccion);
+				mav.setViewName("updateProducto");				
+			} catch (Exception e) {
+				mav.setViewName("updateProducto");
+				mav.addObject("mensaje", "Producto no encontrado");
+			}
 			return mav;
 			
 		}
@@ -158,10 +167,15 @@ public class Controlador {
 			
 			//Ejecuto la consuta
 			String sql="UPDATE productos SET url=?, descripcion_nombre=?,ref=?, descripcion=?, tresd=?, bluetooth=?, fecha=?, cruz=?, horario=?, brillo=?, disponibilidad=?, voltaje=?,consumo=?, almacenamiento=?, trabajo=?, pixeles=?, fuente=?, control=?, tipografia=?, cpu=?, animacion=?, cantidad=?, ancho=?, alto=?, fondo=?, id_categorias=? WHERE id=?";
-			jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria,id});
-			
-			mav.setViewName("home");
-			mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha actualizado con éxito");
+			try {
+				jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria,id});
+				
+				mav.setViewName("home");
+				mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha actualizado con éxito");				
+			} catch (Exception e) {
+				mav.setViewName("updateProducto");
+				mav.addObject("mensaje", "El producto no se ha podido actualizar");	
+			}
 			return mav;
 	
 	}
@@ -182,11 +196,15 @@ public class Controlador {
 			
 			//Ejecuto la consuta
 			String sql="DELETE FROM productos WHERE id=?";
-			
-			jdbc.update(sql, new Object[]{id});
-			
-			mav.setViewName("home");
-			mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha eliminado con éxito");
+			try {
+				jdbc.update(sql, new Object[]{id});
+				
+				mav.setViewName("home");
+				mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha eliminado con éxito");				
+			} catch (Exception e) {
+				mav.setViewName("updateProducto");
+				mav.addObject("mensaje", "El producto no se ha podido borrar");	
+			}
 			return mav;
 	
 	}
