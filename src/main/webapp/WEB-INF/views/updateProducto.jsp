@@ -21,6 +21,7 @@
 			<option value="7">Centro médico</option>
 	</select>
 	<p>Referencia: <input type="text" name="ref" /></p>
+	<p>OCULTAR: <input type="text" name="page" value="actualiza" />
 	<p><input type="submit" value="Enviar" /></p>
 
 </form>
@@ -64,12 +65,6 @@
 			<option value="7">Centro médico</option>
 	</select>
 	<p><input type="submit" value="Actualizar" /></p>
-</form>
-
-<form action="borrar" method="post">
-	<p>Ocultar la id del producto: <input type="text" name="id" value="${seleccion.getId()}"></p>
-	<p>Nombre ocultar: <input type="text" name="descripcion_nombre" value="${seleccion.getDescripcion_nombre()}" /></p>
-	<p><input type="submit" value="Borrar" /></p>
 </form>
 
 </body>

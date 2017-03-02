@@ -92,7 +92,8 @@ public class Controlador {
 	public ModelAndView buscaP(
 			//Recojo la referencia del producto que quiere modificar
 			@RequestParam("categoria") String categoria,
-			@RequestParam("ref") String ref 
+			@RequestParam("ref") String ref,
+			@RequestParam("page") String pagina
 			){
 			
 			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
@@ -112,9 +113,19 @@ public class Controlador {
 					new Object[]{categoria, ref}
 					);
 			
-			//Añado el producto a la vista y redirigo al formulario de actualización
+			//Añado el producto a la vista y redirigo al formulario que corresponda
 			mav.addObject("seleccion", seleccion);
-			mav.setViewName("updateProducto");
+			
+			if (pagina.equals("actualiza")){
+				
+				mav.setViewName("updateProducto");
+				
+			}else{
+				
+				mav.setViewName("removeProducto");
+				
+			}
+			
 			return mav;
 			
 		}
@@ -166,10 +177,19 @@ public class Controlador {
 	
 	}
 	
+	//Actualizar un producto
+	@RequestMapping("/eliminaProducto")
+	public String deleteP(){
+		
+		return "removeProducto";
+		
+	}
+	
+	
 	
 	//Elimino el producto
 	@RequestMapping("/borrar")
-	public ModelAndView actualizaProducto(
+	public ModelAndView borraProducto(
 			//Recogemos los parámetros de la request
 			@RequestParam("id") int id,
 			@RequestParam("descripcion_nombre") String descripcion_nombre){
@@ -190,12 +210,6 @@ public class Controlador {
 			return mav;
 	
 	}
-	
-	
-	
-	
-	
-	
 	
 
 }
