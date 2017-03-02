@@ -287,17 +287,66 @@ public class Producto {
 		this.id_categorias = id_categorias;
 	}
 
-	//toString
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", url=" + url + ", descripcion_nombre=" + descripcion_nombre + ", ref=" + ref
-				+ ", descripcion=" + descripcion + ", tresd=" + tresd + ", bluetooh=" + bluetooh + ", fecha=" + fecha
-				+ ", cruz=" + cruz + ", horario=" + horario + ", brillo=" + brillo + ", disponibilidad="
-				+ disponibilidad + ", voltaje=" + voltaje + ", consumo=" + consumo + ", almacenamiento="
-				+ almacenamiento + ", trabajo=" + trabajo + ", pixeles=" + pixeles + ", fuente=" + fuente + ", control="
-				+ control + ", tipografia=" + tipografia + ", cpu=" + cpu + ", animacion=" + animacion + ", cantidad="
-				+ cantidad + ", ancho=" + ancho + ", alto=" + alto + ", fondo=" + fondo + ", id_categorias="
-				+ id_categorias + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append(" {\"url\":\"");
+		builder.append(url);
+		builder.append("\", descripcion_nombre\":\"");
+		builder.append(descripcion_nombre);
+		builder.append("\", ref\":\"");
+		builder.append(ref);
+		builder.append("\", descripcion\":\"");
+		builder.append(descripcion);
+		builder.append("\", tresd\":\"");
+		builder.append(tresd);
+		builder.append("\", bluetooh\":\"");
+		builder.append(bluetooh);
+		builder.append("\", fecha\":\"");
+		builder.append(fecha);
+		builder.append("\", cruz\":\"");
+		builder.append(cruz);
+		builder.append("\", horario\":\"");
+		builder.append(horario);
+		builder.append("\", brillo\":\"");
+		builder.append(brillo);
+		builder.append("\", disponibilidad\":\"");
+		builder.append(disponibilidad);
+		builder.append("\", voltaje\":\"");
+		builder.append(voltaje);
+		builder.append("\", consumo\":\"");
+		builder.append(consumo);
+		builder.append("\", almacenamiento\":\"");
+		builder.append(almacenamiento);
+		builder.append("\", trabajo\":\"");
+		builder.append(trabajo);
+		builder.append("\", pixeles\":\"");
+		builder.append(pixeles);
+		builder.append("\", fuente\":\"");
+		builder.append(fuente);
+		builder.append("\", control\":\"");
+		builder.append(control);
+		builder.append("\", tipografia\":\"");
+		builder.append(tipografia);
+		builder.append("\", cpu\":\"");
+		builder.append(cpu);
+		builder.append("\", animacion\":\"");
+		builder.append(animacion);
+		builder.append("\", cantidad\":\"");
+		builder.append(cantidad);
+		builder.append("\", ancho\":\"");
+		builder.append(ancho);
+		builder.append("\", alto\":\"");
+		builder.append(alto);
+		builder.append("\", fondo\":\"");
+		builder.append(fondo);
+		builder.append("\", id_categorias\":\"");
+		builder.append(id_categorias);
+		builder.append("}");
+		return builder.toString();
 	}
+
+
+	
 
 }

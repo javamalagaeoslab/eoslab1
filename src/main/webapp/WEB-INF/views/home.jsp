@@ -11,7 +11,9 @@
 
 <a href="altaProducto" ><p>Añadir producto</p></a>
 <a href="modificaProducto" ><p>Modificar/Eliminar producto</p></a>
+<a href="JSON" ><p>Dame JSON</p></a>
 
 ${mensaje}
+${seleccion }
 </body>
 </html>
