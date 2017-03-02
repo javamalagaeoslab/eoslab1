@@ -21,6 +21,7 @@
 			<option value="7">Centro médico</option>
 	</select>
 	<p>Referencia: <input type="text" name="ref" /></p>
+	<p>${mensaje}</p>
 	<p><input type="submit" value="Enviar" /></p>
 
 </form>
