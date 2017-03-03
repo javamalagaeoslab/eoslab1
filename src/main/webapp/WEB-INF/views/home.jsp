@@ -26,7 +26,7 @@
 								data-toggle="dropdown"><img src="resources/farmacia.png" width="60%"/></a>
 								<ul class="dropdown-menu forAnimate" role="menu">
 
-									<li><a href="modificaProducto">Modificar</a></li>
+									<li><a href="#">Modificar</a></li>
 
 								</ul></li>
 							<li class="dropdown"><a href="modificaProducto" class="dropdown-toggle"
@@ -82,24 +82,22 @@
 					</div>
 				</div>
 			</nav>
-		</div>
+	</div>
 		<div class="col2" id="home">
 
 			<div class="navbar_top">
 				<h1>
-					<a href="altaProducto" class="btn btn-primary" role="button">Añadir
-						Producto</a> <a href="modificaProducto" class="btn btn-primary" role="button">Modificar
-						Producto</a> <a href="eliminaProducto" class="btn btn-primary" role="button">Eliminar
-						Producto</a><a href="JSON" class="btn btn-primary" role="button">Dame JSON
-						Producto</a>
+					<a href="altaProducto" class="btn btn-primary" role="button">Añadir Producto</a> 
+					<a href="modificaProducto" class="btn btn-primary" role="button">Modificar Producto</a> 
+					<a href="eliminaProducto" class="btn btn-primary" role="button">Eliminar Producto</a>
+					<a href="altaCategoria" class="btn btn-primary" role="button">Añadir Categoría</a>
+					<a href="JSON" class="btn btn-primary" role="button">Dame JSON</a>
+					<p>${mensaje}</p>
 				</h1>
-
 			</div>
 		</div>
-
 	</div>
 
-	${mensaje}
 	
 </body>
 </html>

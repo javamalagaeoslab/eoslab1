@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agregar un producto</title>
+<title>Agregar Producto</title>
 <%@include file="cabecera.jsp"%>
 </head>
 <body>
@@ -256,13 +256,7 @@
 					<a href="cancelar" class="bt btn btn-primary " role="button">Cancelar</a>
 				</p>
 			</form>
-
-
-
-
-
-
-
+			
 		</div>
 
 	</div>
