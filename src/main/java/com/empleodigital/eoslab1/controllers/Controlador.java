@@ -241,4 +241,89 @@ public class Controlador {
 	}
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Dar de alta una categoria
+	@RequestMapping("/altaCategoria")
+	public String altaC(){
+		
+		return "addCategoria";
+		
+	}
+	
+	@RequestMapping("/agregarC")
+	public ModelAndView agregaCategoria(
+			//Recogemos los parámetros de la request
+			@RequestParam("nombreC") String nombreC, 
+			@RequestParam("imagenC") String imagenC){
+			
+			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+			ModelAndView mav = new ModelAndView();
+			
+			//Conectamos con la BBDD usando la clase Conector creada anteriormente
+			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+			
+			//Ejecuto la consuta
+			String sql="INSERT INTO categorias (nombre, imagen) VALUES (?,?);";
+			
+			try {
+				jdbc.update(sql, new Object[]{nombreC, imagenC});
+				mav.setViewName("home");
+				mav.addObject("mensaje", "La categoria " + nombreC + " se ha agregado con éxito");				
+			} catch (Exception e) {
+				mav.setViewName("home");
+				mav.addObject("mensaje", "La categoría no se ha podido agregar");
+			}
+			return mav;
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
