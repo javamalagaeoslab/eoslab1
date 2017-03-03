@@ -86,6 +86,7 @@
 		</div>
 		<div class="col2">
 			<h2 class="title">Añadir Producto</h2>
+			<p>${mensaje}</p>
 
 			<form action="agregar" method="post">
 
