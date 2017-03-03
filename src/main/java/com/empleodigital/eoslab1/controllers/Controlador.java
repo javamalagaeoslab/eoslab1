@@ -135,7 +135,7 @@ public class Controlador {
 					
 				}else{
 					
-					mav.setViewName("delete");
+					mav.setViewName("deleteProducto");
 					
 				}
 								
@@ -147,7 +147,7 @@ public class Controlador {
 					
 				}else{
 					
-					mav.setViewName("delete");
+					mav.setViewName("deleteProducto");
 					
 				}
 				
@@ -214,7 +214,7 @@ public class Controlador {
 	@RequestMapping("/eliminaProducto")
 	public String deleteP(){
 		
-		return "delete";
+		return "deleteProducto";
 		
 	}
 	

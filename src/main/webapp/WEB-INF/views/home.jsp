@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Página del Administrador</title>
+<title>Gestión Catálogo</title>
 <%@include file="cabecera.jsp"%>
 
 </head>
