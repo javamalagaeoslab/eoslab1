@@ -7,7 +7,7 @@ USE eoslab;
 CREATE TABLE categorias(
 	id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(150) NOT NULL,
-	imagen VARCHAR(150) NOT NULL
+	imagen VARCHAR(150) NOT NULL DEFAULT 'Imagen no disponible'
 )ENGINE=INNODB;
 
 
@@ -173,17 +173,6 @@ consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, ani
 
 INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,
 consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES ("http://www.eoslab.com/img/productos/cruces/Griega%20150%20Monster/griega150.png",
-"Cruz Led Griega 150 Monster","CG150MONSTER","Texto programable con múltiples efectos y hasta cinco fuentes tipográficas","Animaciones de alta calidad gracias a nuestro sofisticado sistema 3D",
-"Comunicación bluetooth con 100 metros de alcance aproximadamente","Fecha, hora y temperatura. Horario de verano actualizado automáticamente",
-"Cualquier cruz se puede pedir a una o a dos caras","Control de horario comercial: Abierto y Cerrado","Control de brillo mediante programación horaria. (Día y noche)",
-"Disponible en un sólo color o con orla (dos colores) a elegir, sin coste adicional","Voltaje de Entrada: 200-240V AC","Consumo Máximo: 718w",
-"Temperatura de Almacenamiento: -30°C ~ 140°C","Temperatura de Trabajo: -20°C ~ 64°C","Separación entre píxeles: 22mm","Alimentación: Fuente de 5V alojada en el interior",
-"Sistema de Control: Bus de datos serie", "Número de fuentes tipográficas: 5", "CPU: 16bits", "Animaciones: 16Mbytes", "Cantidad de Leds: 6144", "Ancho: 148 cm", "Alto: 148 cm",
-"Fondo: 12", 1);
-
-
-INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,
-consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES ("http://www.eoslab.com/img/productos/cruces/Latina%2060/latina60-01-v.png",
 "Cruz Led Griega 150 Monster","CG150MONSTER","Texto programable con múltiples efectos y hasta cinco fuentes tipográficas","Animaciones de alta calidad gracias a nuestro sofisticado sistema 3D",
 "Comunicación bluetooth con 100 metros de alcance aproximadamente","Fecha, hora y temperatura. Horario de verano actualizado automáticamente",
 "Cualquier cruz se puede pedir a una o a dos caras","Control de horario comercial: Abierto y Cerrado","Control de brillo mediante programación horaria. (Día y noche)",
