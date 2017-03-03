@@ -1,7 +1,6 @@
 package com.empleodigital.eoslab1.controllers;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,16 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.empleodigital.eoslab1.bbdd.Conector;
+import com.empleodigital.eoslab1.beans.ObjetoJSON;
 import com.empleodigital.eoslab1.beans.Producto;
 
 @Controller
 public class ControllerJSON {
 	
 	@RequestMapping(value="JSON", method=RequestMethod.GET)
-	@ResponseBody
-	public ArrayList<Producto> devuelveJSON(){
-		
+	@ResponseBody 
+	public ObjetoJSON devuelveJSON(){
 		ArrayList<Producto> seleccion = new ArrayList<Producto>();
 		
 		//Conectamos con la BBDD usando la clase Conector creada anteriormente
@@ -34,9 +34,9 @@ public class ControllerJSON {
 				new BeanPropertyRowMapper<Producto>(Producto.class),
 				new Object[]{}
 				);
+		ObjetoJSON json = new ObjetoJSON(seleccion);
 		
-		//Compruebo que me devuelve los pretendientes que tienen ese tag
-		return seleccion;
+		return json;
 		
 	}
 	
