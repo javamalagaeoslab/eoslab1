@@ -1,5 +1,7 @@
 package com.empleodigital.eoslab1.controllers;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -64,19 +66,25 @@ public class Controlador {
 			
 			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 			ModelAndView mav = new ModelAndView();
-			
-			//Conectamos con la BBDD usando la clase Conector creada anteriormente
-			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
-			
-			//Ejecuto la consuta
-			String sql="INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			try {
-				jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
-				mav.setViewName("home");
-				mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");				
-			} catch (Exception e) {
-				mav.setViewName("home");
-				mav.addObject("mensaje", "El producto no se ha podido agregar");
+			if (!this.existeProducto(categoria, ref)) {
+				//Conectamos con la BBDD usando la clase Conector creada anteriormente
+				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+				
+				//Ejecuto la consuta
+				String sql="INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				
+				
+				try {
+					jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
+					mav.setViewName("home");
+					mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");				
+				} catch (Exception e) {
+					mav.setViewName("home");
+					mav.addObject("mensaje", "El producto no se ha podido agregar");
+				}				
+			} else {
+				mav.setViewName("addProducto");
+				mav.addObject("mensaje","El producto que intentas añadir ya existe");
 			}
 			return mav;
 	
@@ -239,6 +247,32 @@ public class Controlador {
 			return mav;
 	
 	}
+	
+	
+	private boolean existeProducto(@RequestParam("categoria") String categoria,@RequestParam("ref") String ref){
+		boolean existe = false;
+		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+		String sql;
+		sql ="SELECT * FROM productos WHERE productos.id_categorias=? AND productos.ref=?";
+		try {
+			List lista = jdbc.query(
+					sql,
+					new BeanPropertyRowMapper<Producto>(Producto.class),
+					new Object[]{categoria, ref}
+					);
+			if (lista.isEmpty()) {
+				existe = false;
+			} else {
+				existe = true;
+			}			
+		} catch (Exception e) {
+			
+		}
+		return existe;
+	}
+	
+	
+	
 	
 
 }
