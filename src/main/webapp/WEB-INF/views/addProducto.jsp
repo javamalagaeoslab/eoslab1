@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agregar Producto</title>
+<title>Añadir Producto</title>
 <%@include file="cabecera.jsp"%>
 </head>
 <body>
@@ -100,13 +100,13 @@
 					<label>Nombre: </label>
 				</p>
 				<p>
-					<input type="text" name="descripcion_nombre" class="form-control" />
+					<input type="text" name="descripcion_nombre" class="form-control" required="required"  />
 				</p>
 				<p>
 					<label>Referencia: </label>
 				</p>
 				<p>
-					<input type="text" name="ref" class="form-control" />
+					<input type="text" name="ref" class="form-control" required="required" />
 				</p>
 				<h2 class="subtitle">Características</h2>
 				<p>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -98,9 +98,10 @@
 			<option value="6">Clínicas dentales</option>
 			<option value="7">Centro médico</option>
 	</select>
-	<p>Referencia: <input type="text" name="ref" /></p>
+	</p>
+	<p>Referencia: <input type="text" name="ref" required="required" /></p>
 
-	<p>OCULTAR: <input type="text" name="page" value="actualiza" />
+	<input type="text" name="page" value="actualiza" hidden="hidden"/>
 
 	<p>${mensaje}</p>
 
