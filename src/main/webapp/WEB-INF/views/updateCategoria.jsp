@@ -25,14 +25,11 @@
 							<form action="buscacategoria" method="post">
 	<p>Categoría
 		<select name="categoria">
-			<option value="1">Cruces de farmacia</option>
-			<option value="2">Clínicas veterinarias</option>
-			<option value="3">Preciarios gasolineras</option>
-			<option value="4">Clínicas ortopedias</option>
-			<option value="5">Cruces de parafarmacia</option>
-			<option value="6">Clínicas dentales</option>
-			<option value="7">Centro médico</option>
-	</select>
+			<c:forEach items="${lista}" var="categoria">
+				<option value="${categoria.getId()}">${categoria.getNombre()}</option>
+			</c:forEach>	
+		</select>
+	
 	</p>
 	<input type="text" name="page" value="actualiza" hidden="hidden"/>
 	<p>${mensaje}</p>
