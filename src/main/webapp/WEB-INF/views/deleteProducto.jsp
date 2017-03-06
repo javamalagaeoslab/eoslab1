@@ -14,11 +14,11 @@
 <%@include file="menu.jsp" %>
 </div>
 
-<div class="col2" >
+<div class="col2 padding" >
 <div class="section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 " >
+          <div class="col-md-10 " >
            <h2 class="title">Eliminar Producto</h2> 
 
 <h3>Indica la categoria y la referencia del producto</h3>
@@ -34,18 +34,18 @@
       <option value="7">Centro médico</option>
   </select>
   <p>Referencia: <input type="text" name="ref" /></p>
-  <p><input type="submit"  class="bt btn btn-primary" value="Enviar" role="button"/></p>
+  <p><input type="submit"  class=" btn btn-primary" value="Enviar" role="button"/></p>
   
    <div class="section margin">
               <div class="container">
                 <div class="row">
-                  <div class="col-md-3 form Top ">
+                  <div class="col-md-6 form Top ">
 
 
   <p>id del producto: <input type="text" name="id" value="${seleccion.getId()}" readonly></p>
   <p>Nombre: <input type="text" name="descripcion_nombre" value="${seleccion.getDescripcion_nombre()}" readonly/></p>
-  <p><input type="submit" class="btn btn-primary" role="button"value="Borrar" />
-   <a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p></p>
+  <p><input type="submit" class="bt btn btn-primary" role="button"value="Borrar" /></p>
+   <p><a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p></p>
 </form>
  </div>
         </div>

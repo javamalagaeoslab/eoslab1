@@ -256,14 +256,15 @@ nav.sidebar li a:hover{
   .col1{
   width:20%;
   float:left;
+
   height:100%;
   }
   .col2{
   margin:0 auto;
   width:80%;
   float:left;
-  padding:5% 1% 2% 1%;
   height:100%;
+
   
  
   }
@@ -304,4 +305,14 @@ nav.sidebar li a:hover{
   .home{
   position:fixed;
   left:25%;}
+  
+  .center{
+  margin-top:20%;
+
+
+  }
+  .padding{
+    padding-top:5%;}
+  
+  
   

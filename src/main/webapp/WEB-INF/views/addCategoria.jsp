@@ -15,12 +15,12 @@
 		<div class="col1">
 			<%@include file="menu.jsp"%>
 		</div>
-		<div class="col2">
+		<div class="col2 padding">
 
 			<div class="section">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6 ">
+						<div class=" col-md-8 ">
 							<h2 class="title">Añadir Categoria</h2>
 							<form action="agregarC" method="post">
 								<p>
@@ -32,28 +32,28 @@
 								</p>
 								<p>
 									<input type="submit" class="bt btn btn-primary" value="Añadir" />
-									<a href="cancelar" class="bt btn btn-primary " role="button">Cancelar</a>
+									<a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a>
 								</p>
 							</form>
 
 
 
-							
 
 
 
 
-										</div>
-									</div>
-								</div>
-							</div>
+
 						</div>
-						
-						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 
 
 
 
 </body>
-						</html>
+</html>
