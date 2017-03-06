@@ -44,7 +44,8 @@
 
   <p>id del producto: <input type="text" name="id" value="${seleccion.getId()}" readonly></p>
   <p>Nombre: <input type="text" name="descripcion_nombre" value="${seleccion.getDescripcion_nombre()}" readonly/></p>
-  <p><input type="submit" class="btn btn-primary" role="button"value="Borrar" /></p>
+  <p><input type="submit" class="btn btn-primary" role="button"value="Borrar" />
+   <a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p></p>
 </form>
  </div>
         </div>
