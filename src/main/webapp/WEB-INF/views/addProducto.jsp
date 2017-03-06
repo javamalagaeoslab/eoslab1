@@ -9,240 +9,149 @@
 </head>
 <body>
 
+
 	<div class="wrapper">
 		<div class="col1">
-			<nav class="navbar navbar-default sidebar" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-sidebar-navbar-collapse-1">
-						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse"
-					id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/farmacia.png" /></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-								<li><a href="#">Modificar</a></li>
-
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/veterinaria.png" /> <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-
-								<li><a href="#">Modificar</a></li>
-
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/gasolinera.png" /> <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-
-								<li><a href="#">Modificar</a></li>
-
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/ortopedia.png" /> <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-
-								<li><a href="#">Modificar</a></li>
-
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/paraFarmacia.png" /> <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-
-								<li><a href="#">Modificar</a></li>
-
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/dentales.png" /><span
-								class="caret"></span></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-
-								<li class="divider"></li>
-
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><img src="img/medico.png" /> <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu forAnimate" role="menu">
-								<li><a href="#">Modificar</a></li>
-
-							</ul></li>
-
-
-					</ul>
-				</div>
-			</div>
-			</nav>
+			<%@include file="menu.jsp" %>
 		</div>
 		<div class="col2">
-			<h2 class="title">Añadir Producto</h2>
-			<p>${mensaje}</p>
+		
+		<div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 " >
+           <h2 class="title">Añadir Producto</h2>
+          <form action="agregar" method="post" >
 
-			<form action="agregar" method="post">
-
 				<p>
-					<label>URL imagen:</label>
+					
 				</p>
 				<p>
-					<input type="text" name="url" class="form-control" />
+					URL imagen:<input type="text" name="url" class="form-control" />
+				</p>
+				
+				<p>
+					Nombre:<input type="text" name="descripcion_nombre" class="form-control" />
+				</p>
+				
+				<p>
+					Referencia:<input type="text" name="ref" class="form-control" />
+				</p>
+          
+          
+          
+            <div class="section margin">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3 form Top ">
+                  <h2 class="subtitle">Características</h2>
+				<p>
+					
 				</p>
 				<p>
-					<label>Nombre: </label>
+					Texto:<textarea class="form-control" name="descripcion" /></textarea>
 				</p>
 				<p>
-					<input type="text" name="descripcion_nombre" class="form-control" required="required"  />
+					
 				</p>
 				<p>
-					<label>Referencia: </label>
+					Animaciones:<textarea class="form-control" name="tresd" /></textarea>
+				</p>
+			
+				<p>
+					Bluetooth:<textarea class="form-control" name="bluetooth" /></textarea>
+				</p>
+			
+				<p>
+				Fecha:<textarea class="form-control" name="fecha" /></textarea>
+				</p>
+                  
+                  
+                  
+                  </div>
+                  <div class="col-md-3 form Top Left" >
+                  <p>
+					Caras:<input type="text" name="cruz" class="form-control" />
+				</p>
+				
+				<p>
+					Horario:<input type="text" name="horario" class="form-control" />
+				</p>
+				
+				<p>
+					Brillo:<input type="text" name="brillo" class="form-control" />
+				</p>
+				
+				<p>
+					Color:<input type="text" name="disponibilidad" class="form-control" />
 				</p>
 				<p>
-					<input type="text" name="ref" class="form-control" required="required" />
+					Voltaje:<input type="text" name="voltaje" class="form-control" />
 				</p>
-				<h2 class="subtitle">Características</h2>
+				
 				<p>
-					<label>Texto: </label>
+					Consumo:<input type="text" name="consumo" class="form-control" />
 				</p>
-				<p>
-					<textarea class="form-control" name="descripcion" /></textarea>
+				  <p>
+          	Temperatura de almacenamiento:<input type="text" name="almacenamiento" class="form-control" />
 				</p>
+			
 				<p>
-					<label>Animaciones:</label>
+					Temperatura de trabajo:<input type="text" name="trabajo" class="form-control" />
 				</p>
+                  
+                  
+                  
+                  
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 form LL" >
+          
 				<p>
-					<textarea class="form-control" name="tresd" /></textarea>
+					Píxeles:<input type="text" name="pixeles" class="form-control" />
 				</p>
+			
 				<p>
-					<label>Bluetooth:</label>
+					Alimentación:<input type="text" name="fuente" class="form-control" />
 				</p>
+			
 				<p>
-					<textarea class="form-control" name="bluetooth" /></textarea>
+					Sistema de control:<input type="text" name="control" class="form-control" />
 				</p>
+			
 				<p>
-					<label>Fecha:</label>
+					Tipografía:<input type="text" name="tipografia" class="form-control" />
 				</p>
+				
 				<p>
-					<textarea class="form-control" name="fecha" /></textarea>
+					CPU:<input type="text" name="cpu" class="form-control" />
 				</p>
+			
 				<p>
-					<label>Caras:</label>
+					Animaciones:<input type="text" name="animacion" class="form-control" />
 				</p>
+			
 				<p>
-					<input type="text" name="cruz" class="form-control" />
+					Número de leds:<input type="text" name="cantidad" class="form-control" />
 				</p>
+			
 				<p>
-					<label>Horario: </label>
+					Ancho:<input type="text" name="ancho" class="form-control" />
 				</p>
+			
 				<p>
-					<input type="text" name="horario" class="form-control" />
+					Alto:<input type="text" name="alto" class="form-control" />
 				</p>
+			
 				<p>
-					<label>Brillo: </label>
-				</p>
-				<p>
-					<input type="text" name="brillo" class="form-control" />
-				</p>
-				<p>
-					<label>Color:</label>
-				</p>
-				<p>
-					<input type="text" name="disponibilidad" class="form-control" />
-				</p>
-				<p>
-					<label>Voltaje:</label>
-				</p>
-				<p>
-					<input type="text" name="voltaje" class="form-control" />
-				</p>
-				<p>
-					<label>Consumo:</label>
-				</p>
-				<p>
-					<input type="text" name="consumo" class="form-control" />
-				</p>
-				<p>
-					<label>Temperatura de almacenamiento: </label>
+					Fondo:<input type="text" name="fondo" class="form-control" />
 				</p>
 				<p>
-					<input type="text" name="almacenamiento" class="form-control" />
-				</p>
-				<p>
-					<label>Temperatura de trabajo: </label>
-				</p>
-				<p>
-					<input type="text" name="trabajo" class="form-control" />
-				</p>
-				<p>
-					<label>Píxeles: </label>
-				</p>
-				<p>
-					<input type="text" name="pixeles" class="form-control" />
-				</p>
-				<p>
-					<label>Alimentación: </label>
-				</p>
-				<p>
-					<input type="text" name="fuente" class="form-control" />
-				</p>
-				<p>
-					<label>Sistema de control: </label>
-				</p>
-				<p>
-					<input type="text" name="control" class="form-control" />
-				</p>
-				<p>
-					<label>Tipografía: </label>
-				</p>
-				<p>
-					<input type="text" name="tipografia" class="form-control" />
-				</p>
-				<p>
-					<label>CPU: </label>
-				</p>
-				<p>
-					<input type="text" name="cpu" class="form-control" />
-				</p>
-				<p>
-					<label>Animaciones: </label>
-				</p>
-				<p>
-					<input type="text" name="animacion" class="form-control" />
-				</p>
-				<p>
-					<label>Número de leds: </label>
-				</p>
-				<p>
-					<input type="text" name="cantidad" class="form-control" />
-				</p>
-				<p>
-					<label>Ancho: </label>
-				</p>
-				<p>
-					<input type="text" name="ancho" class="form-control" />
-				</p>
-				<p>
-					<label>Alto: </label>
-				</p>
-				<p>
-					<input type="text" name="alto" class="form-control" />
-				</p>
-				<p>
-					<label>Fondo: </label>
-				</p>
-				<p>
-					<input type="text" name="fondo" class="form-control" />
-				</p>
-				<p>
-					<label>Categoría</label> <select name="categoria"
+					Categoría <select name="categoria"
 						class="form-control">
 						<option value="1">Cruces de farmacia</option>
 						<option value="2">Clínicas veterinarias</option>
@@ -253,11 +162,30 @@
 						<option value="7">Centro médico</option>
 					</select>
 				<p>
-					<input type="submit"  class="bt btn btn-primary" value="Añadir" />
-					<a href="cancelar" class="bt btn btn-primary " role="button">Cancelar</a>
+          
+          
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+			
+				
+					<a href="#" class="bt btn btn-primary " role="button">Añadir
+						Producto</a> <a href="#" class="bt btn btn-default " role="button">Cancelar</a>
 				</p>
 			</form>
-			
+
+
+
+
+
+
+
 		</div>
 
 	</div>
