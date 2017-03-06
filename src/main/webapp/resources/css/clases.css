@@ -110,6 +110,89 @@ nav.sidebar li a:hover{
       opacity: 0;
     }*/
   }
+  @media (max-width: 765px) {
+
+    .main{
+      position: absolute;
+      width: calc(100% - 40px); 
+      margin-left: 40px;
+      float: right;
+    }
+
+    nav.sidebar:hover + .main{
+      margin-left: 200px;
+    }
+
+    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+      margin-left: 0px;
+    }
+
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+      text-align: center;
+      width: 100%;
+      margin-left: 0px;
+    }
+    
+    nav.sidebar a{
+      padding-right: 13px;
+    }
+
+    nav.sidebar .navbar-nav > li:first-child{
+      border-top: 1px #fff solid;
+    }
+
+    nav.sidebar .navbar-nav > li{
+      border-bottom: 1px #fff solid;
+
+    }
+    nav.sidebar .navbar-nav > li ul li{
+      background-color: #f7f7f7;
+      color:#fff;
+      
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+      padding: 0 0px 0 0px;
+    }
+
+    /*.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+      color: #777;
+    }*/
+
+    nav.sidebar{
+      width: 200px;
+      height: 100%;
+      margin-left: -160px;
+      float: left;
+      margin-bottom: 0px;
+    }
+
+    nav.sidebar li {
+      width: 100%;
+    }
+
+
+
+    nav.sidebar:hover{
+      margin-left: 0px;
+
+    }
+/*
+    .forAnimate{
+      opacity: 0;
+    }*/
+  }
    
   @media (min-width: 1330px) {
 
@@ -179,7 +262,7 @@ nav.sidebar li a:hover{
   margin:0 auto;
   width:80%;
   float:left;
-  padding:3% 1% 2% 1%;
+  padding:5% 1% 2% 1%;
   height:100%;
   
  
@@ -221,3 +304,4 @@ nav.sidebar li a:hover{
   .home{
   position:fixed;
   left:25%;}
+  

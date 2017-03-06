@@ -101,7 +101,7 @@
     </div>
     
 	<p><input type="submit"class="bt btn btn-primary  value="Actualizar" role="button"/>
- <a href="#" class="bt btn btn-default " role="button">Cancelar</a></p>
+ <a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p>
 	
 </form>
 

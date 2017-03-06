@@ -176,7 +176,7 @@
 			
 				
 					<a href="#" class="bt btn btn-primary " role="button">Añadir
-						Producto</a> <a href="#" class="bt btn btn-default " role="button">Cancelar</a>
+						Producto</a> <a href="cancelar#" class="bt btn btn-default " role="button">Cancelar</a>
 				</p>
 			</form>
 
