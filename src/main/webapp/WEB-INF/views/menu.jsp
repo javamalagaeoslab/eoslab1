@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav">
        
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle verde" data-toggle="dropdown"><img src="resources/farmacia.png" width="50%" class="img-responsive"/></a>
+          <a href="#" class="dropdown-toggle verde" data-toggle="dropdown"><img src="resources/farmacia.png" width="50%" height="100%" class="img-responsive"/></a>
           <ul class="dropdown-menu forAnimate" role="menu">
             
             <li><a href="#">Modificar</a></li>
@@ -13,7 +13,7 @@
           </ul>
         </li>  
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle azul" data-toggle="dropdown"><img src="resources/veterinaria.png" width="50%" class="img-responsive"/> </a>
+          <a href="#" class="dropdown-toggle azul" data-toggle="dropdown"><img src="resources/veterinaria.png" width="50%" height="100%" class="img-responsive"/> </a>
           <ul class="dropdown-menu forAnimate" role="menu">
             
             <li><a href="#">Modificar</a></li>
@@ -22,7 +22,7 @@
           </ul>
         </li> 
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle morado" data-toggle="dropdown"><img src="resources/gasolinera.png" width="50%" class="img-responsive"/> </a>
+          <a href="#" class="dropdown-toggle morado" data-toggle="dropdown"><img src="resources/gasolinera.png" width="50%" height="100%" class="img-responsive"/> </a>
           <ul class="dropdown-menu forAnimate" role="menu">
             
             <li><a href="#">Modificar</a></li>
@@ -31,7 +31,7 @@
           </ul>
         </li> 
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle naranja" data-toggle="dropdown"><img src="resources/ortopedia.png" width="50%" class="img-responsive"/></a>
+          <a href="#" class="dropdown-toggle naranja" data-toggle="dropdown"><img src="resources/ortopedia.png" width="50%" height="100%" class="img-responsive"/></a>
           <ul class="dropdown-menu forAnimate" role="menu">
          
             <li><a href="#">Modificar</a></li>
@@ -40,7 +40,7 @@
           </ul>
         </li> 
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle azulClaro" data-toggle="dropdown"><img src="resources/paraFarmacia.png" width="50%" class="img-responsive"/> </a>
+          <a href="#" class="dropdown-toggle azulClaro" data-toggle="dropdown"><img src="resources/paraFarmacia.png" width="50%" height="100%" class="img-responsive"/> </a>
           <ul class="dropdown-menu forAnimate" role="menu">
         
             <li><a href="#">Modificar</a></li>
@@ -49,7 +49,7 @@
           </ul>
         </li> 
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle verdeOscuro" data-toggle="dropdown"><img src="resources/dentales.png" width="50%" class="img-responsive"/> </a>
+          <a href="#" class="dropdown-toggle verdeOscuro" data-toggle="dropdown"><img src="resources/dentales.png" width="50%" height="100%" class="img-responsive"/> </a>
           <ul class="dropdown-menu forAnimate" role="menu">
          
             <li><a href="#">Modificar</a></li>
@@ -58,7 +58,7 @@
           </ul>
         </li>    
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle rojo" data-toggle="dropdown"><img src="resources/medico.png" width="50%" class="img-responsive"/> </a>
+          <a href="#" class="dropdown-toggle rojo" data-toggle="dropdown"><img src="resources/medico.png" width="50%" height="100%" class="img-responsive"/> </a>
           <ul class="dropdown-menu forAnimate" role="menu">
             
             <li><a href="#">Modificar</a></li>
