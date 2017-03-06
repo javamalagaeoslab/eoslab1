@@ -1,5 +1,7 @@
 package com.empleodigital.eoslab1.controllers;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -51,9 +53,29 @@ public class ControladorCategorias {
 		
 		//Modificar una categoría
 		@RequestMapping("/modificaCategoria")
-		public String updateP(){
+		public ModelAndView updateP(){
 			
-			return "updateCategoria";
+			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+			ModelAndView mav = new ModelAndView();
+			
+			//Conectamos con la BBDD usando la clase Conector creada anteriormente
+			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+			
+			//Creo y ejecuto las consultas. Los encapsulo porque sino devuelve ningún valor la consulta me peta
+			//el programa
+			String sql;
+			sql ="SELECT * FROM categorias;";
+			
+			//Realizo la consulta que me devuelve todas las categorias disponibles
+			List<Categoria> lista = jdbc.query(
+					sql,
+					new BeanPropertyRowMapper<Categoria>(Categoria.class),
+					new Object[]{}
+					);
+			
+			mav.addObject("lista", lista);
+			mav.setViewName("updateCategoria");
+			return mav;
 			
 		}
 		
@@ -145,9 +167,29 @@ public class ControladorCategorias {
 		
 		//Eliminar una categoría
 		@RequestMapping("/eliminaCategoria")
-		public String deleteC(){
+		public ModelAndView deleteC(){
 			
-			return "deleteCategoria";
+			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+			ModelAndView mav = new ModelAndView();
+			
+			//Conectamos con la BBDD usando la clase Conector creada anteriormente
+			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+			
+			//Creo y ejecuto las consultas. Los encapsulo porque sino devuelve ningún valor la consulta me peta
+			//el programa
+			String sql;
+			sql ="SELECT * FROM categorias;";
+			
+			//Realizo la consulta que me devuelve todas las categorias disponibles
+			List<Categoria> lista = jdbc.query(
+					sql,
+					new BeanPropertyRowMapper<Categoria>(Categoria.class),
+					new Object[]{}
+					);
+			
+			mav.addObject("lista", lista);
+			mav.setViewName("deleteCategoria");
+			return mav;
 			
 		}
 		
