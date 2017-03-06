@@ -18,7 +18,7 @@ body,html{
 }
 
 nav.sidebar li a:hover{
-  	backgrpound-color:#101115;
+  	backgrpound-color:#1D2637;
 
   }
 
@@ -54,14 +54,7 @@ nav.sidebar li a:hover{
       padding-right: 13px;
     }
 
-    nav.sidebar .navbar-nav > li:first-child{
-      border-top: 1px #fff solid;
-    }
 
-    nav.sidebar .navbar-nav > li{
-      border-bottom: 1px #fff solid;
-
-    }
     nav.sidebar .navbar-nav > li ul li{
       background-color: #f7f7f7;
       color:#fff;
@@ -137,14 +130,6 @@ nav.sidebar li a:hover{
       padding-right: 13px;
     }
 
-    nav.sidebar .navbar-nav > li:first-child{
-      border-top: 1px #fff solid;
-    }
-
-    nav.sidebar .navbar-nav > li{
-      border-bottom: 1px #fff solid;
-
-    }
     nav.sidebar .navbar-nav > li ul li{
       background-color: #f7f7f7;
       color:#fff;
