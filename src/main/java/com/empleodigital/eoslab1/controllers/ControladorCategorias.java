@@ -61,7 +61,7 @@ public class ControladorCategorias {
 		@RequestMapping("/buscacategoria")
 		public ModelAndView buscaP(
 				//Recojo la referencia del producto que quiere modificar
-				@RequestParam("categoria") String categoria,
+				@RequestParam("categoria") int categoria,
 				@RequestParam("page") String page
 				){
 				
@@ -73,7 +73,7 @@ public class ControladorCategorias {
 				
 				//Ejecuto la consulta que me devuelve el producto a modificar
 				String sql;
-				sql ="SELECT * FROM categorias WHERE nombre=?";
+				sql ="SELECT * FROM categorias WHERE id=?";
 				
 				//Realizo la consulta que me devuelve el producto con esa referencia
 				try {
@@ -144,7 +144,7 @@ public class ControladorCategorias {
 		}
 		
 		//Eliminar una categoría
-		@RequestMapping("/eliminaCategoría")
+		@RequestMapping("/eliminaCategoria")
 		public String deleteC(){
 			
 			return "deleteCategoria";
@@ -166,7 +166,7 @@ public class ControladorCategorias {
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 				
 				//Ejecuto la consuta
-				String sql="DELETE FROM caterogiras WHERE id=?";
+				String sql="DELETE FROM caterogias WHERE id=?";
 				try {
 					jdbc.update(sql, new Object[]{id});
 					

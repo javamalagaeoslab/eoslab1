@@ -11,7 +11,7 @@
 <div class="col2" >
   <h2 class="title">Eliminar Categoría</h2>
 
-<h3>Indica el nombre de la categoría ha eliminar</h3>
+<h3>Indica la categoría ha eliminar</h3>
 <form action="buscacategoria" method="post">
 	<p>Categoría
 		<select name="categoria">
@@ -24,7 +24,7 @@
 			<option value="7">Centro médico</option>
 	</select>
 	</p>
-	<input type="text" name="page" value="actualiza" hidden="hidden"/>
+	<input type="text" name="page" value="elimina" hidden="hidden"/>
 	<p>${mensaje}</p>
 
 	<p><input type="submit" value="Buscar" /></p>
