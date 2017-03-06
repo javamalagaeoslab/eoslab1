@@ -22,20 +22,9 @@
 					<a href="modificaCategoria" class="btn btn-primary" role="button">Modificar Categoría</a>
 					<a href="eliminaCategoria" class="btn btn-primary" role="button">Eliminar Categoría</a>
 					<p>${mensaje}</p>
-					<a href="altaProducto" class="bt btn btn-default" role="button">Añadir
-						Producto</a> <a href="modificaProducto" class="bt btn btn-default" role="button">Modificar
-						Producto</a> <a href="eliminaProducto" class="bt btn btn-default" role="button">Eliminar
-						Producto</a><a href="JSON" class="bt btn btn-default" role="button">Dame JSON
-						Producto</a>
 				</h1>
-
 			</div>
 		</div>
-
 	</div>
-
-
-
-	${mensaje}
 </body>
 </html>
