@@ -15,12 +15,12 @@
 
 			<div class="navbar_top">
 				<h1>
-					<a href="altaProducto" class="btn btn-primary" role="button">Añadir Producto</a> 
-					<a href="modificaProducto" class="btn btn-primary" role="button">Modificar Producto</a> 
-					<a href="eliminaProducto" class="btn btn-primary" role="button">Eliminar Producto</a>
-					<a href="altaCategoria" class="btn btn-primary" role="button">Añadir Categoría</a>
-					<a href="modificaCategoria" class="btn btn-primary" role="button">Modificar Categoría</a>
-					<a href="eliminaCategoria" class="btn btn-primary" role="button">Eliminar Categoría</a>
+					<a href="altaProducto" class="bt btn btn-default" role="button">Añadir Producto</a> 
+					<a href="modificaProducto" class="bt btn btn-default" role="button">Modificar Producto</a> 
+					<a href="eliminaProducto" class="bt btn btn-default" role="button">Eliminar Producto</a>
+					<a href="altaCategoria" class="bt btn btn-default" role="button">Añadir Categoría</a>
+					<a href="modificaCategoria" class="bt btn btn-default" role="button">Modificar Categoría</a>
+					<a href="eliminaCategoria" class="bt btn btn-default" role="button">Eliminar Categoría</a>
 					<p>${mensaje}</p>
 				</h1>
 			</div>
