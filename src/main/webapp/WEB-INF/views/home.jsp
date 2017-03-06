@@ -91,7 +91,8 @@
 					<a href="modificaProducto" class="btn btn-primary" role="button">Modificar Producto</a> 
 					<a href="eliminaProducto" class="btn btn-primary" role="button">Eliminar Producto</a>
 					<a href="altaCategoria" class="btn btn-primary" role="button">Añadir Categoría</a>
-					<a href="JSON" class="btn btn-primary" role="button">Dame JSON</a>
+					<a href="modificaCategoria" class="btn btn-primary" role="button">Modificar Categoría</a>
+					<a href="eliminaCategoria" class="btn btn-primary" role="button">Eliminar Categoría</a>
 					<p>${mensaje}</p>
 				</h1>
 			</div>
