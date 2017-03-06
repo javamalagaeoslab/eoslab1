@@ -195,7 +195,7 @@ public class ControladorCategorias {
 		
 		//Elimino la categoria
 		@RequestMapping("/eliminarC")
-		public ModelAndView borraProducto(
+		public ModelAndView borraCategoria(
 				//Recogemos los parámetros de la request
 				@RequestParam("id") int id,
 				@RequestParam("nombre") String nombre, 
@@ -208,7 +208,7 @@ public class ControladorCategorias {
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 				
 				//Ejecuto la consuta
-				String sql="DELETE FROM caterogias WHERE id=?";
+				String sql="DELETE FROM categorias WHERE id=?";
 				try {
 					jdbc.update(sql, new Object[]{id});
 					
