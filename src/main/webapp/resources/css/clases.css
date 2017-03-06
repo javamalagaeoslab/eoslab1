@@ -1,5 +1,6 @@
 body,html{
     height: 100%;
+    background-color:#FFF;
   }
 
   nav.sidebar, .main{
@@ -8,6 +9,19 @@ body,html{
       -o-transition: margin 200ms ease-out;
       transition: margin 200ms ease-out;
   }
+  nav.sidebar{
+  	width:100%;
+
+  }
+.nav>li>a>img{
+	margin:0 auto;
+}
+
+nav.sidebar li a:hover{
+  	backgrpound-color:#101115;
+
+  }
+
 
   .main{
     padding: 10px 10px 0 10px;
@@ -22,9 +36,9 @@ body,html{
       float: right;
     }
 
-   /* nav.sidebar:hover + .main{
+    nav.sidebar:hover + .main{
       margin-left: 200px;
-    }*/
+    }
 
     nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
       margin-left: 0px;
@@ -36,19 +50,25 @@ body,html{
       margin-left: 0px;
     }
     
-  /*  nav.sidebar a{
+    nav.sidebar a{
       padding-right: 13px;
-    }*/
+    }
 
     nav.sidebar .navbar-nav > li:first-child{
-      border-top: 1px #e5e5e5 solid;
+      border-top: 1px #fff solid;
     }
 
     nav.sidebar .navbar-nav > li{
-      border-bottom: 1px #e5e5e5 solid;
+      border-bottom: 1px #fff solid;
+
+    }
+    nav.sidebar .navbar-nav > li ul li{
+      background-color: #f7f7f7;
+      color:#fff;
+      
     }
 
-    /*nav.sidebar .navbar-nav .open .dropdown-menu {
+    nav.sidebar .navbar-nav .open .dropdown-menu {
       position: static;
       float: none;
       width: auto;
@@ -57,15 +77,15 @@ body,html{
       border: 0;
       -webkit-box-shadow: none;
       box-shadow: none;
-    }*/
+    }
 
     nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
       padding: 0 0px 0 0px;
     }
 
-    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    /*.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
       color: #777;
-    }
+    }*/
 
     nav.sidebar{
       width: 200px;
@@ -79,13 +99,16 @@ body,html{
       width: 100%;
     }
 
+
+
     nav.sidebar:hover{
       margin-left: 0px;
-    }
 
+    }
+/*
     .forAnimate{
       opacity: 0;
-    }
+    }*/
   }
    
   @media (min-width: 1330px) {
@@ -94,62 +117,107 @@ body,html{
       width: calc(100% - 200px);
       margin-left: 200px;
     }
+    
 
     nav.sidebar{
       margin-left: 0px;
       float: left;
     }
 
-    nav.sidebar .forAnimate{
+   /* nav.sidebar .forAnimate{
       opacity: 1;
-    }
+    }*/
   }
-
-  /*nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+  .open>a:focus, .nav .open>a:hover{
+  	background-color: #f5f5f5;
+  }
+    .open>a:focus, .nav .open>a:active{
+  	background-color: #1B2333;
+  }
+/*
+  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
     color: #CCC;
     background-color: transparent;
-  }
+  }*/
 
-  nav:hover .forAnimate{
+/*  nav:hover .forAnimate{
     opacity: 1;
   }*/
   section{
     padding-left: 15px;
   }
+  
+  .Left{
+  margin-left:3%;
+  }
+  
+  .Top{
+  margin-top:3%;
+   
+   }
+  .LL{
+   margin-left:7%;
+  } 
+  .form{
+
+  background-color:#f5f5f5;
+  padding:2%;
+  border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+  
+  }
+  
+  
+  
+  .col1{
+  width:20%;
+  float:left;
+  height:100%;
+  }
+  .col2{
+  margin:0 auto;
+  width:80%;
+  float:left;
+  padding:3% 1% 2% 1%;
+  height:100%;
+  
  
- .wrapper{
- 	width:100%;
- 	height:100%;
- 	margin:0 auto;
- 	padding:0 auto;
- }
+  }
+  .rojo{
+  	background-color:#BB1E2D;
 
- .col1{
- 	width:20%;
- 	float:left;
- 	background-color: #181a26;
- }
- .col2{
- 	width:80%;
- 	float:left;
- 	padding:10%;
- }
-.navbar_top{
-	width:100%;
-	margin:0 auto;
-}
- .btn-primary{
- 	background-color: #181a26;
- 	margin-left:5%;
- 	width: 25%;
- 	text-align: center;
- }
+  }
+  .verde{
+  	  	background-color:#B1E679;
 
-/* .dropdown-toggle{
- 	background-color: transparent;
- }*/
+  }
+  .azul{
+  	  	background-color:#216D97;
 
- #home{
- 	position: fixed;
- 	left:20%;
- }
+  }
+  .morado{
+  	  	background-color:#662D8E;
+
+  }
+  .naranja{
+  	  	background-color:#EEC10F;
+
+  }
+  .verdeOscuro{
+  	  	background-color:#006838;
+
+  }
+  .azulClaro{
+  	  	background-color:#27a7de;
+
+  }
+  .bt{
+  width:60%;
+	float:left;
+  margin-top:3%;
+  margin-left:10%;}
+  
+  .home{
+  position:fixed;
+  left:25%;}
