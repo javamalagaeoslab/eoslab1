@@ -1,7 +1,11 @@
 package com.empleodigital.eoslab1.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -10,18 +14,39 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.empleodigital.eoslab1.bbdd.Conector;
+import com.empleodigital.eoslab1.beans.Categoria;
 import com.empleodigital.eoslab1.beans.Producto;
 
 //Indico que se trata de un controlador
 @Controller
 public class Controlador {
 	
+	@Autowired
+	private HttpSession session;
+	
 	//Lo primero en cargar debe ser el controlador y redirigir al home
 	//Como no realizo ninguna acción más haya que redirigir no necesito ModelAndView
 	@RequestMapping({"/","/cancelar"})
-	public String landing(){
-
-		return "home";
+	public ModelAndView landing(){
+        //Creamos un objeto mav para redireccionar en función del resultado de la consulta
+        ModelAndView mav = new ModelAndView();
+        
+        //Conectamos con la BBDD usando la clase Conector creada anteriormente
+        JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+        
+        //Creo y ejecuto las consultas. Los encapsulo porque sino devuelve ningún valor la consulta me peta
+        //el programa
+        String sql;
+        sql ="SELECT * FROM categorias;";
+        
+        //Realizo la consulta que me devuelve todas las categorias disponibles
+        ArrayList<Categoria> lista = (ArrayList<Categoria>) jdbc.query(
+                sql,
+                new BeanPropertyRowMapper<Categoria>(Categoria.class));
+        
+        session.setAttribute("lista", lista);
+        mav.setViewName("home");
+        return mav;
 		
 	}
 	

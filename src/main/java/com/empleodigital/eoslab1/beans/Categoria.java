@@ -42,6 +42,11 @@ public class Categoria {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nombre=" + nombre + ", imagen=" + imagen + "]";
+	}
 	
 	
 	
