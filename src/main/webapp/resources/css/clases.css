@@ -1,4 +1,5 @@
 body,html{
+	width:100%;
     height: 100%;
     background-color:#fff;
   }
@@ -18,6 +19,11 @@ body,html{
 }
 
 nav.sidebar li a:hover{
+  	backgrpound-color:#1D2637;
+
+  }
+  
+  nav.sidebar li:hover{
   	backgrpound-color:#1D2637;
 
   }

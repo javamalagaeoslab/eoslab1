@@ -5,10 +5,11 @@
 		<div class="collapse navbar-collapse"
 			id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-
+			
+			<c:forEach items="${sessionScope.lista}" var="categoria">
 				<li class="dropdown">
-					<c:forEach items="${sessionScope.lista}" var="categoria">
-						<a href="${categoria.id}" class="dropdown-toggle verde" data-toggle="dropdown"><img
+					
+						<a href="${categoria.id}" class="dropdown-toggle azul" data-toggle="dropdown"><img
 							src="<c:url value='/resources/${categoria.imagen}'/>"
 							width="50%" class="img-responsive" /></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
