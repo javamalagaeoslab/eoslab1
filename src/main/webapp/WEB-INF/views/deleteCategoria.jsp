@@ -72,7 +72,7 @@
 												</p>
 												<input type="submit" class="bt btn btn-primary"
 													value="Eliminar" /> <a href="cancelar"
-													class="bt btn btn-primary " role="button">Cancelar</a>
+													class="bt btn btn-default " role="button">Cancelar</a>
 												</p>
 											</form>
 										</div>
