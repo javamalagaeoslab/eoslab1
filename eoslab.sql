@@ -43,13 +43,13 @@ CREATE TABLE productos(
 
 )ENGINE=INNODB;
 
-INSERT INTO categorias(nombre) VALUES ("Cruces de farmacia");
-INSERT INTO categorias(nombre) VALUES ("Clínicas veterinarias");
-INSERT INTO categorias(nombre) VALUES ("Preciarios gasolineras");
-INSERT INTO categorias(nombre) VALUES ("Clínicas ortopedias");
-INSERT INTO categorias(nombre) VALUES ("Cruces de parafarmacia");
-INSERT INTO categorias(nombre) VALUES ("Clínicas dentales");
-INSERT INTO categorias(nombre) VALUES ("Centro médico");
+INSERT INTO categorias(nombre, imagen) VALUES ("Cruces de farmacia", "farmacia.png");
+INSERT INTO categorias(nombre, imagen) VALUES ("Clínicas veterinarias", "veterinaria.png");
+INSERT INTO categorias(nombre, imagen) VALUES ("Preciarios gasolineras", "gasolinera.png");
+INSERT INTO categorias(nombre, imagen) VALUES ("Clínicas ortopedias", "ortopedia.png");
+INSERT INTO categorias(nombre, imagen) VALUES ("Cruces de parafarmacia", "paraFarmacia.png");
+INSERT INTO categorias(nombre, imagen) VALUES ("Clínicas dentales", "dentales.png");
+INSERT INTO categorias(nombre, imagen) VALUES ("Centro médico", "medico.png");
 
 INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,
 consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES ("http://www.eoslab.com/img/productos/cruces/Latina%2060/latina60-02.png",
