@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,6 +44,25 @@ public class Controlador {
         ArrayList<Categoria> lista = (ArrayList<Categoria>) jdbc.query(
                 sql,
                 new BeanPropertyRowMapper<Categoria>(Categoria.class));
+        
+        //Creo un ArrayList con que contenga todos los productos que existan para cada categoría
+        ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+        
+        for (int i=0; i<lista.size();i++){
+        	
+        	Categoria categoria= lista.get(i);
+        	
+        	sql ="SELECT * FROM productos WHERE id_categorias=?";
+        	
+        	listaProductos=(ArrayList<Producto>) jdbc.query(
+                    sql,
+                    new BeanPropertyRowMapper<Producto>(Producto.class),
+                    new Object[]{categoria.getId()}
+                    );
+        	categoria.setListaProducto(listaProductos);
+        }
+       
+        System.out.println(listaProductos);
         
         session.setAttribute("lista", lista);
         mav.setViewName("home");
@@ -117,10 +137,23 @@ public class Controlador {
 	
 	
 	//Actualizar un producto
-	@RequestMapping("/modificaProducto")
+	@RequestMapping("/modificaP")
 	public String updateP(){
 		
 		return "updateProducto";
+		
+	}
+	
+	@RequestMapping("/modificaProducto/{categoria}/{ref}")
+	public ModelAndView updateP(@PathVariable int categoria, @PathVariable String ref){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("categoria",categoria);
+		mav.addObject("ref",ref);
+		mav.setViewName("updateProducto");
+		
+		return mav;
 		
 	}
 	

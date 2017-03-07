@@ -23,7 +23,7 @@
           <form action="buscaproducto" method="post" >
           
 	<p>Categoría
-		<select name="categoria">
+		<select name="categoria" value="${categoria}">
 			<option value="1">Cruces de farmacia</option>
 			<option value="2">Clínicas veterinarias</option>
 			<option value="3">Preciarios gasolineras</option>
@@ -32,7 +32,7 @@
 			<option value="6">Clínicas dentales</option>
 			<option value="7">Centro médico</option>
 	</select>
-	<p>Referencia: <input type="text" name="ref" /></p>
+	<p>Referencia: <input type="text" name="ref" value="${ref}"/></p>
 	<p>${mensaje}</p>
 	<p><input type="submit" class=" btn btn-primary" value="Enviar" role="button"/></p>
 

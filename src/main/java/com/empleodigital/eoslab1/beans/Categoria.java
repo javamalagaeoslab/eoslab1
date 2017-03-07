@@ -1,10 +1,13 @@
 package com.empleodigital.eoslab1.beans;
 
+import java.util.ArrayList;
+
 public class Categoria {
 	//Atributos
 	private int id;
 	private String nombre;
 	private String imagen;
+	private ArrayList<Producto> listaProducto;
 	
 	//Constructores
 	public Categoria() {
@@ -43,10 +46,21 @@ public class Categoria {
 		this.imagen = imagen;
 	}
 
+	
+	public ArrayList<Producto> getListaProducto() {
+		return listaProducto;
+	}
+	
+	public void setListaProducto(ArrayList<Producto> listaProducto) {
+		this.listaProducto = listaProducto;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Categoria [id=" + id + ", nombre=" + nombre + ", imagen=" + imagen + "]";
 	}
+
 	
 	
 	
