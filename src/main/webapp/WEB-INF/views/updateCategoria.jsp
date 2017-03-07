@@ -34,7 +34,7 @@
 	<input type="text" name="page" value="actualiza" hidden="hidden"/>
 	<p>${mensaje}</p>
 
-	<p><input type="submit" value="Buscar" /></p>
+	<p><input type="submit" class="btn btn-primary" value="Buscar" /></p>
 </form>  
    <div class="section margin">
               <div class="container">
