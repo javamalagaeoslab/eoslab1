@@ -167,30 +167,9 @@ public class ControladorCategorias {
 		
 		//Eliminar una categoría
 		@RequestMapping("/eliminaCategoria")
-		public ModelAndView deleteC(){
+		public String deleteC(){
 			
-			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
-			ModelAndView mav = new ModelAndView();
-			
-			//Conectamos con la BBDD usando la clase Conector creada anteriormente
-			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
-			
-			//Creo y ejecuto las consultas. Los encapsulo porque sino devuelve ningún valor la consulta me peta
-			//el programa
-			String sql;
-			sql ="SELECT * FROM categorias;";
-			
-			//Realizo la consulta que me devuelve todas las categorias disponibles
-			List<Categoria> lista = jdbc.query(
-					sql,
-					new BeanPropertyRowMapper<Categoria>(Categoria.class),
-					new Object[]{}
-					);
-			
-			mav.addObject("lista", lista);
-			mav.setViewName("deleteCategoria");
-			return mav;
-			
+			return "deleteCategoria";
 		}
 		
 		//Elimino la categoria
@@ -198,8 +177,7 @@ public class ControladorCategorias {
 		public ModelAndView borraCategoria(
 				//Recogemos los parámetros de la request
 				@RequestParam("id") int id,
-				@RequestParam("nombre") String nombre, 
-				@RequestParam("imagen") String imagen){
+				@RequestParam("nombre") String nombre){
 				
 				//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 				ModelAndView mav = new ModelAndView();

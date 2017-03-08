@@ -20,24 +20,27 @@
           <div class="col-md-6 " >
            <h2 class="title">Modificar Producto</h2>
            <h3>Indica la categoria y la referencia del producto</h3>
+           
+           
           <form action="buscaproducto" method="post" >
           
-	<p>Categoría
-		<select name="categoria" value="${categoria}">
-			<option value="1">Cruces de farmacia</option>
-			<option value="2">Clínicas veterinarias</option>
-			<option value="3">Preciarios gasolineras</option>
-			<option value="4">Clínicas ortopedias</option>
-			<option value="5">Cruces de parafarmacia</option>
-			<option value="6">Clínicas dentales</option>
-			<option value="7">Centro médico</option>
-	</select>
-	<p>Referencia: <input type="text" name="ref" value="${ref}"/></p>
 	<p>${mensaje}</p>
+	<p>Categorías
+		<select name="categoria" class="form-control" >
+			<option value=""></option>
+			<c:forEach items="${lista}" var="categoria">
+			<option value="${categoria.getId()}">${categoria.getNombre()}</option>
+			</c:forEach>
+			
+			 
+		</select>
+	</p>
+	<p>Referencia: <input type="text" name="ref" value="${ref}"/></p>
+	<p><input type="text" name="page" value="actualiza" hidden="hidden" /></p>
 	<p><input type="submit" class=" btn btn-primary" value="Enviar" role="button"/></p>
 
 </form>
-<div class="section margin">
+ <div class="section margin">
               <div class="container">
                 <div class="row">
                   <div class="col-md-3 form Top ">
@@ -48,22 +51,22 @@
 	<p>Nombre: </p><p><input type="text" name="descripcion_nombre" value="${seleccion.getDescripcion_nombre()}" /></p>
 	<p>Referencia: </p><p><input type="text" name="ref" value="${seleccion.getRef()}"/></p>
 	<h2 class="subtitle">Características</h2>
-	<p>Texto:</p><p><textarea  class="form-control" name="descripcion" value="${seleccion.getDescripcion()}"/></textarea></p>
-  <p>Animaciones:</p><p> <textarea class="form-control" name="tresd" value="${seleccion.getTresd()}"/></textarea></p>
-	 <p>Bluetooth:</p><p> <textarea class="form-control" name="bluetooth" value="${seleccion.getBluetooh()}" /></textarea></p>
+	<p>Texto:</p><p><textarea  class="form-control" name="descripcion" >${seleccion.getDescripcion()}</textarea></p>
+  <p>Animaciones:</p><p> <textarea class="form-control" name="tresd" >${seleccion.getTresd()}</textarea></p>
+	 <p>Bluetooth:</p><p> <textarea class="form-control" name="bluetooth" >${seleccion.getBluetooth()}</textarea></p>
 	
 	 </div>
      <div class="col-md-3 form Top Left" >   
      
  
-  <p>Fecha:</p><p> <textarea class="form-control" name="fecha" value="${seleccion.getFecha()}"/></textarea></p>  
+  <p>Fecha:</p><p> <textarea class="form-control" name="fecha">${seleccion.getFecha()}</textarea></p>  
 	<p>Caras:</p><p> <input type="text" name="cruz" value="${seleccion.getCruz()}"/></p>
 	<p>Horario: </p><p><input type="text" name="horario" value="${seleccion.getHorario()}" /></p>
 	<p>Brillo: </p><p><input type="text" name="brillo" value="${seleccion.getBrillo()}"/></p>
 	<p>Color:</p><p> <input type="text" name="disponibilidad" value="${seleccion.getDisponibilidad()}" /></p>
 	<p>Voltaje:</p><p><input type="text" name="voltaje" value="${seleccion.getVoltaje()}"/></p>
 	<p>Consumo:</p><p> <input type="text" name="consumo" value="${seleccion.getConsumo()}"/></p>
-	<p>Temperatura de almacenamiento: </label></p><p><input type="text" name="almacenamiento" value="${seleccion.getAlmacenamiento()}" /></p>
+	<p>Temperatura de almacenamiento:</p><p><input type="text" name="almacenamiento" value="${seleccion.getAlmacenamiento()}" /></p>
 	
 	  </div>
                 </div>
@@ -84,24 +87,21 @@
 	<p>Ancho: </p><p><input type="text" name="ancho" value="${seleccion.getAncho()}"/></p>
 	<p>Alto: </p><p><input type="text" name="alto" value="${seleccion.getAlto()}" /></p>
 	<p>Fondo:</p><p><input type="text" name="fondo" value="${seleccion.getFondo()}"/></p>
-	<p>Categoría
-		<select name="categoria" class="form-control" value="${seleccion.getId_categorias()}">
-			<option value="1">Cruces de farmacia</option>
-			<option value="2">Clínicas veterinarias</option>
-			<option value="3">Preciarios gasolineras</option>
-			<option value="4">Clínicas ortopedias</option>
-			<option value="5">Cruces de parafarmacia</option>
-			<option value="6">Clínicas dentales</option>
-			<option value="7">Centro médico</option>
-	</select>
-	 
-          </div>
+		<p>Categoría
+		<select name="categoria" class="form-control" >
+			<option value=""></option>
+			<c:forEach items="${lista}" var="categoria">
+			<option value="${categoria.getId()}">${categoria.getNombre()}</option>
+			</c:forEach>
+		</select>
+	 </p>
+         </div>
         </div>
       </div>
     </div>
     
-	<p><input type="submit"class="bt btn btn-primary  value="Actualizar" role="button"/>
- <a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p>
+	  <p><input type="submit"class="bt btn btn-primary"  value="Actualizar" role="button"/></p>
+ <p><a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p>
 	
 </form>
 

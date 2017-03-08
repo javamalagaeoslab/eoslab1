@@ -8,7 +8,7 @@ public class Producto {
 	private String ref;
 	private String descripcion;
 	private String tresd;
-	private String bluetooh;
+	private String bluetooth;
 	private String fecha;
 	private String cruz;
 	private String horario;
@@ -36,7 +36,7 @@ public class Producto {
 	}
 	
 	public Producto(int id, String url, String descripcion_nombre, String ref, String descripcion, String tresd,
-			String bluetooh, String fecha, String cruz, String horario, String brillo, String disponibilidad,
+			String bluetooth, String fecha, String cruz, String horario, String brillo, String disponibilidad,
 			String voltaje, String consumo, String almacenamiento, String trabajo, String pixeles, String fuente,
 			String control, String tipografia, String cpu, String animacion, String cantidad, String ancho, String alto,
 			String fondo, int id_categorias) {
@@ -47,7 +47,7 @@ public class Producto {
 		this.ref = ref;
 		this.descripcion = descripcion;
 		this.tresd = tresd;
-		this.bluetooh = bluetooh;
+		this.bluetooth = bluetooth;
 		this.fecha = fecha;
 		this.cruz = cruz;
 		this.horario = horario;
@@ -119,12 +119,12 @@ public class Producto {
 		this.tresd = tresd;
 	}
 
-	public String getBluetooh() {
-		return bluetooh;
+	public String getBluetooth() {
+		return bluetooth;
 	}
 
-	public void setBluetooh(String bluetooh) {
-		this.bluetooh = bluetooh;
+	public void setBluetooth(String bluetooth) {
+		this.bluetooth = bluetooth;
 	}
 
 	public String getFecha() {
@@ -300,8 +300,8 @@ public class Producto {
 		builder.append(descripcion);
 		builder.append("\", tresd\":\"");
 		builder.append(tresd);
-		builder.append("\", bluetooh\":\"");
-		builder.append(bluetooh);
+		builder.append("\", bluetooth\":\"");
+		builder.append(bluetooth);
 		builder.append("\", fecha\":\"");
 		builder.append(fecha);
 		builder.append("\", cruz\":\"");

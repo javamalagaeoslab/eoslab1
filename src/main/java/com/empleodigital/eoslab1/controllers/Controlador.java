@@ -79,7 +79,7 @@ public class Controlador {
 		
 	}
 	
-	@RequestMapping("/agregar")
+	@RequestMapping("/agregarProducto")
 	public ModelAndView agregaProducto(
 			//Recogemos los parámetros de la request
 			@RequestParam("url") String url, 
@@ -124,7 +124,7 @@ public class Controlador {
 					mav.setViewName("home");
 					mav.addObject("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");				
 				} catch (Exception e) {
-					mav.setViewName("home");
+					mav.setViewName("addProducto");
 					mav.addObject("mensaje", "El producto no se ha podido agregar");
 				}				
 			} else {
