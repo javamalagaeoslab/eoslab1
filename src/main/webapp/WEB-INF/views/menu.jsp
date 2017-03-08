@@ -11,14 +11,14 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle verde"
 						data-toggle="dropdown"><img
 							src="<c:url value='/resources/${categoria.imagen}'/>" width="50%"
-							class="img-responsive" /></a> <c:forEach
-							items="${categoria.getListaProducto()}" var="producto">
+							class="img-responsive" /></a> 
+							<c:forEach items="${categoria.getListaProducto()}" var="producto">
 							<ul class="dropdown-menu forAnimate" role="menu">
 								<li><a href="modificaProducto/${categoria.id}/${producto.ref}">${producto.descripcion_nombre}</a></li>
 							</ul>
-						</c:forEach>
+							</c:forEach>
+					</li>
 				</c:forEach>
-				</li>
 			</ul>
 		</div>
 	</div>
