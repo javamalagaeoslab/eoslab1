@@ -24,7 +24,7 @@
            
           <form action="buscaproducto" method="post" >
           
-	<p>${mensaje}</p>
+	<p class="error">${mensaje}</p>
 	<p>Categorías
 		<select name="categoria" class="form-control" >
 			<option value=""></option>

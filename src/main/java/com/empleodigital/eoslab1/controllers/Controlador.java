@@ -253,7 +253,7 @@ public class Controlador {
 		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 		ModelAndView mav = new ModelAndView();
 
-		if (!this.existeProducto(categoria, ref, descripcion_nombre)) {
+		if (!this.existeProducto(categoria, id, ref, descripcion_nombre)) {
 
 			//Conectamos con la BBDD usando la clase Conector creada anteriormente
 			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
@@ -327,6 +327,28 @@ public class Controlador {
 					sql,
 					new BeanPropertyRowMapper<Producto>(Producto.class),
 					new Object[]{categoria, ref, nombre}
+					);
+			if (lista.isEmpty()) {
+				existe = false;
+			} else {
+				existe = true;
+			}			
+		} catch (Exception e) {
+
+		}
+		return existe;
+	}
+	
+	private boolean existeProducto(@RequestParam("categoria") String categoria,@RequestParam("id") int id, @RequestParam("ref") String ref, @RequestParam("descripcion_nombre") String nombre){
+		boolean existe = false;
+		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+		String sql;
+		sql ="SELECT * FROM productos WHERE productos.id_categorias=? AND productos.id<>? AND (productos.ref=? OR productos.descripcion_nombre=?)";
+		try {
+			List lista = jdbc.query(
+					sql,
+					new BeanPropertyRowMapper<Producto>(Producto.class),
+					new Object[]{categoria, id, ref, nombre}
 					);
 			if (lista.isEmpty()) {
 				existe = false;
