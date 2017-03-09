@@ -157,7 +157,7 @@ public class ControladorCategorias {
 				
 				//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 				ModelAndView mav = new ModelAndView();
-				if (!this.existeCategoria(nombre)) {
+				if (!this.existeCategoria(nombre, id)) {
 				//Conectamos con la BBDD usando la clase Conector creada anteriormente
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 				
@@ -236,7 +236,32 @@ public class ControladorCategorias {
 				
 			}
 			return existe;
+		}		
+		
+		
+		private boolean existeCategoria(@RequestParam("nombre") String nombre, @RequestParam("id") int id){
+			boolean existe = false;
+			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+			String sql;
+			sql ="SELECT * FROM categorias WHERE nombre = ? AND id <> ?";
+			try {
+				List lista = jdbc.query(
+						sql,
+						new BeanPropertyRowMapper<Categoria>(Categoria.class),
+						new Object[]{nombre, id}
+						);
+				if (lista.isEmpty()) {
+					existe = false;
+				} else {
+					existe = true;
+				}			
+			} catch (Exception e) {
+				
+			}
+			return existe;
 		}
+		
+		
 	
 	
 	
