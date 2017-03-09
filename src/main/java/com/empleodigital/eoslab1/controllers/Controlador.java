@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Categoria;
@@ -25,10 +26,12 @@ public class Controlador {
 	@Autowired
 	private HttpSession session;
 	
+	
+	
 	//Lo primero en cargar debe ser el controlador y redirigir al home
 	//Como no realizo ninguna acción más haya que redirigir no necesito ModelAndView
 	@RequestMapping({"/","/cancelar"})
-	public ModelAndView landing(){
+	public ModelAndView home(){
         //Creamos un objeto mav para redireccionar en función del resultado de la consulta
         ModelAndView mav = new ModelAndView();
         
@@ -61,8 +64,6 @@ public class Controlador {
                     );
         	categoria.setListaProducto(listaProductos);
         }
-       
-        System.out.println(listaProductos);
         
         session.setAttribute("lista", lista);
         mav.setViewName("home");

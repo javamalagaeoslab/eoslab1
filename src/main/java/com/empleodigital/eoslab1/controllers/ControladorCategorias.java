@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Categoria;
+import com.empleodigital.eoslab1.beans.Producto;
 
 //Indico que se trata de un controlador
 @Controller
@@ -28,10 +30,12 @@ public class ControladorCategorias {
 		public ModelAndView agregaCategoria(
 				//Recogemos los parámetros de la request
 				@RequestParam("nombreC") String nombreC, 
-				@RequestParam("imagenC") String imagenC){
+				@RequestParam("imagenC") String imagenC,
+				RedirectAttributes flash){
 				
 				//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 				ModelAndView mav = new ModelAndView();
+				if (!this.existeCategoria(nombreC)) {
 				
 				//Conectamos con la BBDD usando la clase Conector creada anteriormente
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
@@ -41,11 +45,15 @@ public class ControladorCategorias {
 				
 				try {
 					jdbc.update(sql, new Object[]{nombreC, imagenC});
-					mav.setViewName("home");
-					mav.addObject("mensaje", "La categoria " + nombreC + " se ha agregado con éxito");				
+					flash.addFlashAttribute("mensaje", "La categoria " + nombreC + " se ha agregado con éxito");				
+					mav.setViewName("redirect:/");
 				} catch (Exception e) {
-					mav.setViewName("home");
+					mav.setViewName("addCategoria");
 					mav.addObject("mensaje", "La categoría no se ha podido agregar");
+				}
+				} else {
+					mav.setViewName("addCategoria");
+					mav.addObject("mensaje","La categoría que intentas añadir ya existe");
 				}
 				return mav;
 		
@@ -57,6 +65,7 @@ public class ControladorCategorias {
 			
 			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 			ModelAndView mav = new ModelAndView();
+			
 			
 			//Conectamos con la BBDD usando la clase Conector creada anteriormente
 			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
@@ -142,12 +151,13 @@ public class ControladorCategorias {
 				//Recogemos los parámetros de la request
 				@RequestParam("id") int id,
 				@RequestParam("nombre") String nombre, 
-				@RequestParam("imagen") String imagen
+				@RequestParam("imagen") String imagen,
+				RedirectAttributes flash
 				){
 				
 				//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 				ModelAndView mav = new ModelAndView();
-				
+				if (!this.existeCategoria(nombre)) {
 				//Conectamos con la BBDD usando la clase Conector creada anteriormente
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 				
@@ -155,11 +165,15 @@ public class ControladorCategorias {
 				String sql="UPDATE categorias SET nombre=?, imagen=? WHERE id=?";
 				try {
 					jdbc.update(sql, new Object[]{nombre, imagen, id});
-					mav.setViewName("home");
-					mav.addObject("mensaje", "La categoría " + nombre + " se ha actualizado con éxito");				
+					flash.addFlashAttribute("mensaje", "La categoria " + nombre + " se ha modificado con éxito");				
+					mav.setViewName("redirect:/");				
 				} catch (Exception e) {
 					mav.setViewName("updateCategoria");
 					mav.addObject("mensaje", "La categoria no se ha podido actualizar");	
+				}
+				} else {
+					mav.setViewName("updateCategoria");
+					mav.addObject("mensaje","La categoría que intentas añadir ya existe");
 				}
 				return mav;
 		
@@ -177,7 +191,8 @@ public class ControladorCategorias {
 		public ModelAndView borraCategoria(
 				//Recogemos los parámetros de la request
 				@RequestParam("id") int id,
-				@RequestParam("nombre") String nombre){
+				@RequestParam("nombre") String nombre,
+				RedirectAttributes flash){
 				
 				//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 				ModelAndView mav = new ModelAndView();
@@ -190,8 +205,8 @@ public class ControladorCategorias {
 				try {
 					jdbc.update(sql, new Object[]{id});
 					
-					mav.setViewName("home");
-					mav.addObject("mensaje", "La categoria " + nombre + " se ha eliminado con éxito");				
+					flash.addFlashAttribute("mensaje", "La categoria " + nombre + " se ha eliminado con éxito");				
+					mav.setViewName("redirect:/");				
 				} catch (Exception e) {
 					mav.setViewName("deleteCategoria");
 					mav.addObject("mensaje", "La categoria no se ha podido borrar");	
@@ -201,7 +216,27 @@ public class ControladorCategorias {
 		}
 		
 		
-		
+		private boolean existeCategoria(@RequestParam("nombre") String nombre){
+			boolean existe = false;
+			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+			String sql;
+			sql ="SELECT * FROM categorias WHERE nombre = ?";
+			try {
+				List lista = jdbc.query(
+						sql,
+						new BeanPropertyRowMapper<Categoria>(Categoria.class),
+						new Object[]{nombre}
+						);
+				if (lista.isEmpty()) {
+					existe = false;
+				} else {
+					existe = true;
+				}			
+			} catch (Exception e) {
+				
+			}
+			return existe;
+		}
 	
 	
 	

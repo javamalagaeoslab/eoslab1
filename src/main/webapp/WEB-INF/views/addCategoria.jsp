@@ -23,6 +23,9 @@
 						<div class=" col-md-8 ">
 							<h2 class="title">Añadir Categoria</h2>
 							<form action="agregarC" method="post">
+							<p>
+								${mensaje}
+							</p>
 								<p>
 									Nombre categoría: <input type="text" name="nombreC"
 										required="required" />
