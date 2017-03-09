@@ -89,7 +89,7 @@
 	<p>Fondo:</p><p><input type="text" name="fondo" value="${seleccion.getFondo()}"/></p>
 		<p>Categoría
 		<select name="categoria" class="form-control" >
-			<option value=""></option>
+			<option value="${seleccion.getId_categorias()}"></option>
 			<c:forEach items="${lista}" var="categoria">
 			<option value="${categoria.getId()}">${categoria.getNombre()}</option>
 			</c:forEach>
