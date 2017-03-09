@@ -23,7 +23,7 @@
            <h2 class="title">Añadir Producto</h2>
           <form action="agregarProducto" method="post">
 
-				<p>
+				<p class="error">
 					${mensaje}
 				</p>
 				<p>
@@ -100,16 +100,7 @@
 				<p>
 					Consumo:<input type="text" name="consumo" class="form-control" />
 				</p>
-				  <p>
-          	Temperatura de almacenamiento:<input type="text" name="almacenamiento" class="form-control" />
-				</p>
-			
-				<p>
-					Temperatura de trabajo:<input type="text" name="trabajo" class="form-control" />
-				</p>
-                  
-                  
-                  
+				  
                   
                   
                   </div>
@@ -118,6 +109,13 @@
             </div>
           </div>
           <div class="col-md-3 form LL" >
+          <p>
+          	Temperatura de almacenamiento:<input type="text" name="almacenamiento" class="form-control" />
+				</p>
+			
+				<p>
+					Temperatura de trabajo:<input type="text" name="trabajo" class="form-control" />
+				</p>
           
 				<p>
 					Píxeles:<input type="text" name="pixeles" class="form-control" />
