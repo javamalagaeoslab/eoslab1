@@ -7,9 +7,7 @@ USE eoslab;
 CREATE TABLE categorias(
 	id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(150) NOT NULL,
-	imagen VARCHAR(150) NOT NULL DEFAULT 'Imagen no disponible',
-	ON DELETE CASCADE,
-	ON UPDATE CASCADE
+	imagen VARCHAR(150) NOT NULL DEFAULT 'Imagen no disponible'
 )ENGINE=INNODB;
 
 
@@ -41,7 +39,7 @@ CREATE TABLE productos(
 	alto VARCHAR(150),
 	fondo VARCHAR(150),
 	id_categorias INT(5) NOT NULL,
-	FOREIGN KEY (id_categorias) REFERENCES categorias(id)
+	FOREIGN KEY (id_categorias) REFERENCES categorias(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 )ENGINE=INNODB;
 
@@ -477,13 +475,4 @@ consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, ani
 "Temperatura de Almacenamiento: -30°C ~ 140°C","Temperatura de Trabajo: -20°C ~ 64°C","Separación entre píxeles: 32mm","Alimentación: Fuente de 5V alojada en el interior",
 "Sistema de Control: Bus de datos serie", "Número de fuentes tipográficas: 4", "CPU: 16bits", "Animaciones: 16Mbytes", "Cantidad de Leds: 1536", "Ancho: 112 cm", "Alto: 112 cm",
 "Fondo: 12", 7);
-
-
-
-
-
-
-
-
-
 
