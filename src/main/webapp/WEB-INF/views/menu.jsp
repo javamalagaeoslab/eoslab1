@@ -14,7 +14,7 @@
 							class="img-responsive" /></a> 
 							<c:forEach items="${categoria.getListaProducto()}" var="producto">
 							<ul class="dropdown-menu forAnimate" role="menu">
-								<li><a href="modificaProducto/${categoria.id}/${producto.ref}">${producto.descripcion_nombre}</a></li>
+								<li><a href="modificaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}">${producto.descripcion_nombre}</a></li>
 							</ul>
 							</c:forEach>
 					</li>

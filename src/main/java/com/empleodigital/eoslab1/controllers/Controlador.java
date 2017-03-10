@@ -146,14 +146,19 @@ public class Controlador {
 
 	}
 
-	@RequestMapping("/modificaProducto/{categoria}/{ref}")
-	public ModelAndView updateP(@PathVariable int categoria, @PathVariable String ref){
+	@RequestMapping("/modificaProducto/{categoria}/{ref}/{nombre}")
+	public ModelAndView updateP(
+			@PathVariable int categoria,
+			@PathVariable String ref,
+			@PathVariable String nombre,
+			RedirectAttributes flash){
 
 		ModelAndView mav = new ModelAndView();
-
-		mav.addObject("categoria",categoria);
-		mav.addObject("ref",ref);
-		mav.setViewName("updateProducto");
+		
+		flash.addFlashAttribute("categoria",categoria);				
+		flash.addFlashAttribute("ref",ref);					
+		flash.addFlashAttribute("nombre",nombre);					
+		mav.setViewName("redirect:/modificaP");	
 
 		return mav;
 

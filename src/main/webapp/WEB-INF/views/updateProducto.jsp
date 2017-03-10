@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 	<p class="error">${mensaje}</p>
 	<p>Categorías
 		<select name="categoria" class="form-control" >
-			<option value=""></option>
+			<option value="${categoria}">${nombre}</option>
 			<c:forEach items="${lista}" var="categoria">
 			<option value="${categoria.getId()}">${categoria.getNombre()}</option>
 			</c:forEach>
