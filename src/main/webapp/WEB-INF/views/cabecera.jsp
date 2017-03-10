@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="<c:url value='resources/bootstrap.min.css'/>" />
-<link rel="stylesheet" href="<c:url value='resources/bootstrap-theme.min.css' />" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <link rel="stylesheet" href="<c:url value='resources/clases.css'/>" />
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

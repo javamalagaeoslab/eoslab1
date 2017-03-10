@@ -31,6 +31,7 @@
 									<tr>
 										<td class="tg-yw4l"><p>Categoría</p></td>
 										<td class="tg-yw4l"><select name="categoria">
+										<option value="${categoria}">${nombre}</option>
 												<c:forEach items="${lista}" var="categoria">
 													<option value="${categoria.getId()}">${categoria.getNombre()}</option>
 												</c:forEach>
@@ -38,7 +39,7 @@
 									</tr>
 									<tr>
 										<td class="tg-yw4l"><p>Referencia:</p></td>
-										<td class="tg-yw4l"><input type="text" name="ref" /></td>
+										<td class="tg-yw4l"><input type="text" name="ref" value="${ref}"/></td>
 									</tr>
 									<tr>
 										<td class="tg-yw4l"><input type="text" name="page"

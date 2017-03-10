@@ -290,6 +290,24 @@ public class Controlador {
 
 	}
 
+	
+	@RequestMapping("/eliminaProducto/{categoria}/{ref}/{nombre}")
+	public ModelAndView deleteP(
+			@PathVariable int categoria,
+			@PathVariable String ref,
+			@PathVariable String nombre,
+			RedirectAttributes flash){
+
+		ModelAndView mav = new ModelAndView();
+		
+		flash.addFlashAttribute("categoria",categoria);				
+		flash.addFlashAttribute("ref",ref);					
+		flash.addFlashAttribute("nombre",nombre);					
+		mav.setViewName("redirect:/eliminaProducto");	
+
+		return mav;
+
+	}
 
 
 	//Elimino el producto

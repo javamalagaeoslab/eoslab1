@@ -14,7 +14,15 @@
 							class="img-responsive" /></a> 
 							<c:forEach items="${categoria.getListaProducto()}" var="producto">
 							<ul class="dropdown-menu forAnimate" role="menu">
-								<li><a href="modificaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}">${producto.descripcion_nombre}</a></li>
+								
+									<li>
+									<span class="oscuro">
+										<a class="btn btn-xs" href="modificaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}"><span class="glyphicon glyphicon-trash"></span></a>
+										<a class="btn btn-xs" href="eliminaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}"><span class="glyphicon glyphicon-pencil"></span></a>
+										<span>${producto.descripcion_nombre}</span>
+									</span>
+									</li>
+								
 							</ul>
 							</c:forEach>
 					</li>

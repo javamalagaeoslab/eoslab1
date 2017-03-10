@@ -14,17 +14,22 @@ body,html{
   	width:100%;
 
   }
+  
+.oscuro{
+	color:#333;
+}
+
 .nav>li>a>img{
 	margin:0 auto;
 }
 
 nav.sidebar li a:hover{
-  	backgrpound-color:#1D2637;
+  	background-color:#1D2637;
 
   }
   
-  nav.sidebar li:hover{
-  	backgrpound-color:#1D2637;
+  nav.sidebar li:active{
+  	background-color:#1D2637;
 
   }
 

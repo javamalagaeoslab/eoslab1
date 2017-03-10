@@ -26,7 +26,7 @@
           <form action="buscaproducto" method="post" >
           
 	<p class="error">${mensaje}</p>
-	<p>Categorías
+	<p>Categoría
 		<select name="categoria" class="form-control" >
 			<option value="${categoria}">${nombre}</option>
 			<c:forEach items="${lista}" var="categoria">
