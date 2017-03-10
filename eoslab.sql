@@ -7,7 +7,9 @@ USE eoslab;
 CREATE TABLE categorias(
 	id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(150) NOT NULL,
-	imagen VARCHAR(150) NOT NULL DEFAULT 'Imagen no disponible'
+	imagen VARCHAR(150) NOT NULL DEFAULT 'Imagen no disponible',
+	ON DELETE CASCADE,
+	ON UPDATE CASCADE
 )ENGINE=INNODB;
 
 
