@@ -32,8 +32,6 @@
 			<c:forEach items="${lista}" var="categoria">
 			<option value="${categoria.getId()}">${categoria.getNombre()}</option>
 			</c:forEach>
-			
-			 
 		</select>
 	</p>
 	<p>Referencia: <input type="text" name="ref" value="${ref}"/></p>
