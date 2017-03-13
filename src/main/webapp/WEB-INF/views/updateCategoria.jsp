@@ -74,17 +74,12 @@
 													<tr>
 														<td ><p>Nombre:</p></td>
 														<td ><input type="text" name="nombre"
-															value="${seleccion.getNombre()}" /></td>
+															value="${seleccion.getNombre()}" required="required" /></td>
 													</tr>
 													<tr>
 														<td ><p>URL imagen:</p></td>
 														<td ><input type="text" name="imagen"
 															value="${seleccion.getImagen()}" /></td>
-													</tr>
-												
-													<tr>
-														<td colspan="2"><p class="error">${mensaje}</p></td>
-
 													</tr>
 													<tr>
 														<td colspan="2"><input type="submit"
@@ -93,20 +88,12 @@
 													<tr>
 														<td colspan="2"><a href="cancelar"
 															class="bt btn btn-default " role="button">Cancelar</a>
-														</p></td>
+														</td>
 													</tr>
 												</table>
 												</div>
 
-
-
 											</form>
-
-
-
-
-
-
 
 										</div>
 									</div>

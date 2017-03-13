@@ -154,7 +154,7 @@ public class Controlador {
 			RedirectAttributes flash){
 
 		ModelAndView mav = new ModelAndView();
-		
+
 		flash.addFlashAttribute("categoria",categoria);				
 		flash.addFlashAttribute("ref",ref);					
 		flash.addFlashAttribute("nombre",nombre);					
@@ -226,7 +226,7 @@ public class Controlador {
 	@RequestMapping("/actualizar")
 	public ModelAndView actualizaProducto(
 			//Recogemos los parámetros de la request
-			@RequestParam("id") int id,
+			@RequestParam("id") Integer id,
 			@RequestParam("url") String url, 
 			@RequestParam("descripcion_nombre") String descripcion_nombre,
 			@RequestParam("ref") String ref,
@@ -257,26 +257,31 @@ public class Controlador {
 
 		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 		ModelAndView mav = new ModelAndView();
+		if (id!=null){
+			if (!this.existeProducto(categoria, id, ref, descripcion_nombre)) {
 
-		if (!this.existeProducto(categoria, id, ref, descripcion_nombre)) {
+				//Conectamos con la BBDD usando la clase Conector creada anteriormente
+				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 
-			//Conectamos con la BBDD usando la clase Conector creada anteriormente
-			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+				//Ejecuto la consuta
+				String sql="UPDATE productos SET url=?, descripcion_nombre=?,ref=?, descripcion=?, tresd=?, bluetooth=?, fecha=?, cruz=?, horario=?, brillo=?, disponibilidad=?, voltaje=?,consumo=?, almacenamiento=?, trabajo=?, pixeles=?, fuente=?, control=?, tipografia=?, cpu=?, animacion=?, cantidad=?, ancho=?, alto=?, fondo=?, id_categorias=? WHERE id=?";
+				try {
+					jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria,id});
 
-			//Ejecuto la consuta
-			String sql="UPDATE productos SET url=?, descripcion_nombre=?,ref=?, descripcion=?, tresd=?, bluetooth=?, fecha=?, cruz=?, horario=?, brillo=?, disponibilidad=?, voltaje=?,consumo=?, almacenamiento=?, trabajo=?, pixeles=?, fuente=?, control=?, tipografia=?, cpu=?, animacion=?, cantidad=?, ancho=?, alto=?, fondo=?, id_categorias=? WHERE id=?";
-			try {
-				jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria,id});
-
-				flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha actualizado con éxito");				
-				mav.setViewName("redirect:/");	
-			} catch (Exception e) {
+					flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha actualizado con éxito");				
+					mav.setViewName("redirect:/");	
+				} catch (Exception e) {
+					mav.setViewName("updateProducto");
+					mav.addObject("mensaje", "El producto no se ha podido actualizar");	
+				}
+			} else {
 				mav.setViewName("updateProducto");
-				mav.addObject("mensaje", "El producto no se ha podido actualizar");	
+				mav.addObject("mensaje","Ya existe un producto con ese nombre y/o esa referencia en esta categoría");
 			}
-		} else {
+		}else{
 			mav.setViewName("updateProducto");
-			mav.addObject("mensaje","Ya existe un producto con ese nombre y/o esa referencia en esta categoría");
+			mav.addObject("mensaje", "Indica el producto a modificar");	
+
 		}
 		return mav;
 
@@ -290,7 +295,7 @@ public class Controlador {
 
 	}
 
-	
+
 	@RequestMapping("/eliminaProducto/{categoria}/{ref}/{nombre}")
 	public ModelAndView deleteP(
 			@PathVariable int categoria,
@@ -299,7 +304,7 @@ public class Controlador {
 			RedirectAttributes flash){
 
 		ModelAndView mav = new ModelAndView();
-		
+
 		flash.addFlashAttribute("categoria",categoria);				
 		flash.addFlashAttribute("ref",ref);					
 		flash.addFlashAttribute("nombre",nombre);					
@@ -314,7 +319,7 @@ public class Controlador {
 	@RequestMapping("/borrar")
 	public ModelAndView borraProducto(
 			//Recogemos los parámetros de la request
-			@RequestParam("id") int id,
+			@RequestParam("id") Integer id,
 			@RequestParam("descripcion_nombre") String descripcion_nombre,
 			RedirectAttributes flash){
 
@@ -325,16 +330,25 @@ public class Controlador {
 		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 
 		//Ejecuto la consuta
-		String sql="DELETE FROM productos WHERE id=?";
-		try {
-			jdbc.update(sql, new Object[]{id});
+		if (id!=null){
+			String sql="DELETE FROM productos WHERE id=?";
+			try {
+				jdbc.update(sql, new Object[]{id});
 
-			flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha eliminado con éxito");				
-			mav.setViewName("redirect:/");				
-		} catch (Exception e) {
+				flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha eliminado con éxito");				
+				mav.setViewName("redirect:/");				
+			} catch (Exception e) {
+				mav.setViewName("deleteProducto");
+				mav.addObject("mensaje", "El producto no se ha podido borrar");	
+			}
+
+		}else{
 			mav.setViewName("deleteProducto");
-			mav.addObject("mensaje", "El producto no se ha podido borrar");	
+			mav.addObject("mensaje", "Indica el producto a eliminar");	
+
 		}
+
+
 		return mav;
 
 	}
@@ -361,7 +375,7 @@ public class Controlador {
 		}
 		return existe;
 	}
-	
+
 	private boolean existeProducto(@RequestParam("categoria") String categoria,@RequestParam("id") int id, @RequestParam("ref") String ref, @RequestParam("descripcion_nombre") String nombre){
 		boolean existe = false;
 		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
