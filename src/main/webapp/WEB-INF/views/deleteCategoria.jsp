@@ -22,38 +22,37 @@
 							<h4>Indica la categoría a eliminar</h4>
 
 							<form action="buscacategoria" method="post">
-								<table class="tg">
+							<div class="table-responsive">
+								<table class="table">
 									<tr>
-										<th class="tg-031e" colspan="2"></th>
+										<th  colspan="2"></th>
 									</tr>
 									<tr>
-										<td class="tg-yw4l"><p>Categoría</p></td>
-										<td class="tg-yw4l"><select name="categoria">
+										<td ><p>Categoría</p></td>
+										<td ><select name="categoria">
 												<c:forEach items="${lista}" var="categoria">
 													<option value="${categoria.getId()}">${categoria.getNombre()}</option>
 												</c:forEach>
 										</select></td>
 									</tr>
 									<tr>
-										<td class="tg-yw4l"><input type="text" name="page"
+										<td ><input type="text" name="page"
 											value="elimina" hidden="hidden" /></td>
 
 									</tr>
+								
 									<tr>
-										<td class="tg-yw4l"></td>
-										<td class="tg-yw4l"></td>
-									</tr>
-									<tr>
-										<td class="tg-yw4l" colspan="2"><p>${mensaje}</p></td>
+										<td  colspan="2"><p>${mensaje}</p></td>
 
 									</tr>
 									<tr>
-										<td class="tg-yw4l"><input type="submit"
+										<td ><input type="submit"
 											class="btn btn-primary" value="Buscar" /></td>
 
 									</tr>
 
 								</table>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -67,38 +66,34 @@
 
 
 							<form action="eliminarC" method="post">
-								<table class="tg">
+							<div class="table-responsive">
+								<table class="table">
+								
 									<tr>
-										<th class="tg-031e" colspan="2"></th>
-									</tr>
-									<tr>
-										<td class="tg-yw4l"><p>Id Categoría:</p></td>
-										<td class="tg-yw4l"><input type="text" name="id"
+										<td ><p>Id Categoría:</p></td>
+										<td ><input type="text" name="id"
 											value="${seleccion.getId()}" readonly></td>
 									</tr>
 									<tr>
-										<td class="tg-yw4l"><p>Nombre:</p></td>
-										<td class="tg-yw4l"><input type="text" name="nombre"
+										<td><p>Nombre:</p></td>
+										<td><input type="text" name="nombre"
 											value="${seleccion.getNombre()}" readonly /></td>
 									</tr>
+									
 									<tr>
-										<td class="tg-yw4l"></td>
-										<td class="tg-yw4l"></td>
-									</tr>
-									<tr>
-										<td class="tg-yw4l" colspan="2"><p class="error">${mensaje}</p></td>
+										<td  colspan="2"><p class="error">${mensaje}</p></td>
 
 									</tr>
 									<tr>
-										<td class="tg-yw4l" colspan="2"><input type="submit"
+										<td  colspan="2"><input type="submit"
 											class="bt btn btn-primary" value="Eliminar" /></td>
 									</tr>
 									<tr>
-										<td class="tg-yw4l" colspan="2"><a href="cancelar"
+										<td colspan="2"><a href="cancelar"
 											class="bt btn btn-default " role="button">Cancelar</a></td>
 									</tr>
 								</table>
-
+								</div>
 
 							</form>
 						</div>
