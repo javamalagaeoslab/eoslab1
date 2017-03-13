@@ -146,18 +146,39 @@ public class Controlador {
 
 	}
 
-	@RequestMapping("/modificaProducto/{categoria}/{ref}/{nombre}")
+	@RequestMapping("/modificaProducto/{categoria}/{ref}/{nombre}/{id}")
 	public ModelAndView updateP(
 			@PathVariable int categoria,
 			@PathVariable String ref,
 			@PathVariable String nombre,
+			@PathVariable int id,
 			RedirectAttributes flash){
 
-		ModelAndView mav = new ModelAndView();
+		
+		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+				ModelAndView mav = new ModelAndView();
+
+				//Conectamos con la BBDD usando la clase Conector creada anteriormente
+				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
+
+				//Ejecuto la consulta que me devuelve el producto a modificar
+				String sql;
+				sql ="SELECT * FROM productos WHERE productos.id=?";
+
+				//Realizo la consulta que me devuelve el producto con esa referencia
+				try {
+					Producto seleccion = jdbc.queryForObject(
+							sql,
+							new BeanPropertyRowMapper<Producto>(Producto.class),
+							new Object[]{id});
+					flash.addFlashAttribute("seleccion", seleccion);
+				}catch (Exception e) {
+					
+				}
 
 		flash.addFlashAttribute("categoria",categoria);				
 		flash.addFlashAttribute("ref",ref);					
-		flash.addFlashAttribute("nombre",nombre);					
+		flash.addFlashAttribute("nombre",nombre);	
 		mav.setViewName("redirect:/modificaP");	
 
 		return mav;
@@ -296,18 +317,25 @@ public class Controlador {
 	}
 
 
-	@RequestMapping("/eliminaProducto/{categoria}/{ref}/{nombre}")
+	@RequestMapping("/eliminaProducto/{categoria}/{ref}/{nombre}/{id}/{nombreProducto}")
 	public ModelAndView deleteP(
 			@PathVariable int categoria,
 			@PathVariable String ref,
 			@PathVariable String nombre,
+			@PathVariable int id,
+			@PathVariable String nombreProducto,
 			RedirectAttributes flash){
 
+		
 		ModelAndView mav = new ModelAndView();
 
 		flash.addFlashAttribute("categoria",categoria);				
 		flash.addFlashAttribute("ref",ref);					
-		flash.addFlashAttribute("nombre",nombre);					
+		flash.addFlashAttribute("nombre",nombre);
+		Producto producto = new Producto();
+		producto.setId(id);
+		producto.setDescripcion_nombre(nombreProducto);
+		flash.addFlashAttribute("seleccion", producto);
 		mav.setViewName("redirect:/eliminaProducto");	
 
 		return mav;

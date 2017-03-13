@@ -17,8 +17,8 @@
 									<li>
 									<span class="oscuro">
 									<span>${producto.descripcion_nombre}</span>
-										<a class="btn btn-xs" href="modificaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}"><span class="glyphicon glyphicon-pencil"></span></a>
-										<a class="btn btn-xs" href="eliminaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}"><span class="glyphicon glyphicon-trash"></span></a>
+										<a class="btn btn-xs" href="modificaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}/${producto.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+										<a class="btn btn-xs" href="eliminaProducto/${categoria.id}/${producto.ref}/${categoria.nombre}/${producto.id}/${producto.descripcion_nombre}"><span class="glyphicon glyphicon-trash"></span></a>
 										
 									</span>
 									</li>

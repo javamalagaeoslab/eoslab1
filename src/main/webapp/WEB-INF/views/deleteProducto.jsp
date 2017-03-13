@@ -78,13 +78,13 @@
 													<tr>
 														<td class="tg-yw4l"><p>id del producto:</p></td>
 														<td class="tg-yw4l"><input type="text" name="id"
-															value="${seleccion.getId()}" readonly></td>
+															value="${seleccion.id}" readonly></td>
 													</tr>
 													<tr>
 														<td class="tg-yw4l"><p>Nombre:</p></td>
 														<td class="tg-yw4l"><input type="text"
 															name="descripcion_nombre"
-															value="${seleccion.getDescripcion_nombre()}" readonly /></td>
+															value="${seleccion.descripcion_nombre}" readonly /></td>
 													</tr>
 													<tr>
 														<td class="tg-yw4l"></td>
