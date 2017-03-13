@@ -19,6 +19,7 @@ body,html{
   
 .oscuro{
 	color:#333;
+	
 }
 
 .nav>li>a>img{
@@ -26,12 +27,13 @@ body,html{
 }
 
 nav.sidebar li a:hover{
-  	background-color:#1D2637;
+  	background-color:none;
 
   }
+
   
-  nav.sidebar li:active{
-  	background-color:#1D2637;
+  nav.sidebar li a:active{
+  	background-color:none;
 
   }
 
@@ -229,8 +231,10 @@ nav.sidebar li a:hover{
   .col1{
   width:20%;
   float:left;
+   margin:0 auto;
   height:100%;
-  margin:0 auto;
+
+
   }
   
   .col2{
@@ -341,9 +345,6 @@ ul li{
 	font-size:0.9em;
 }
 
-.glyficon hover{
-	text-decoration:none;
-	background-color:transparent;
-}
+
   
   
