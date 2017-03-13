@@ -74,7 +74,7 @@
 													<tr>
 														<td ><p>Nombre:</p></td>
 														<td ><input type="text" name="nombre"
-															value="${seleccion.getNombre()}" /></td>
+															value="${seleccion.getNombre()}" required="required" /></td>
 													</tr>
 													<tr>
 														<td ><p>URL imagen:</p></td>

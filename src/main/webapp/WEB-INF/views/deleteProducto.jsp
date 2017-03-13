@@ -51,7 +51,7 @@
 										<td class="tg-yw4l"></td>
 									</tr>
 									<tr>
-										<td class="tg-yw4l" colspan="2"><p>${mensaje}</p></td>
+										<td class="tg-yw4l" colspan="2"><p class="error">${mensaje}</p></td>
 
 									</tr>
 									<tr>
@@ -89,10 +89,6 @@
 													<tr>
 														<td class="tg-yw4l"></td>
 														<td class="tg-yw4l"></td>
-													</tr>
-													<tr>
-														<td class="tg-yw4l" colspan="2"><p class="error">${mensaje}</p></td>
-
 													</tr>
 
 													<tr>

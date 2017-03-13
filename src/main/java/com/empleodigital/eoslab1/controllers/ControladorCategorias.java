@@ -190,7 +190,7 @@ public class ControladorCategorias {
 		@RequestMapping("/eliminarC")
 		public ModelAndView borraCategoria(
 				//Recogemos los parámetros de la request
-				@RequestParam("id") int id,
+				@RequestParam("id") Integer id,
 				@RequestParam("nombre") String nombre,
 				RedirectAttributes flash){
 				
@@ -201,16 +201,26 @@ public class ControladorCategorias {
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 				
 				//Ejecuto la consuta
-				String sql="DELETE FROM categorias WHERE id=?";
-				try {
-					jdbc.update(sql, new Object[]{id});
+				if(id!=null){
 					
-					flash.addFlashAttribute("mensaje", "La categoria " + nombre + " se ha eliminado con éxito");				
-					mav.setViewName("redirect:/");				
-				} catch (Exception e) {
+					String sql="DELETE FROM categorias WHERE id=?";
+					
+					try {
+						jdbc.update(sql, new Object[]{id});
+						
+						flash.addFlashAttribute("mensaje", "La categoria " + nombre + " se ha eliminado con éxito");				
+						mav.setViewName("redirect:/");				
+					} catch (Exception e) {
+						mav.setViewName("deleteCategoria");
+						mav.addObject("mensaje", "La categoria no se ha podido borrar.");	
+					}
+					
+				}else{
 					mav.setViewName("deleteCategoria");
-					mav.addObject("mensaje", "La categoria no se ha podido borrar");	
+					mav.addObject("mensaje", "Indica la categoría a eliminar");
 				}
+				
+				
 				return mav;
 		
 		}

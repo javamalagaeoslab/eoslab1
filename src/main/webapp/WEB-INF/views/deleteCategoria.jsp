@@ -42,7 +42,7 @@
 									</tr>
 								
 									<tr>
-										<td  colspan="2"><p>${mensaje}</p></td>
+										<td  colspan="2"><p class="error">${mensaje}</p></td>
 
 									</tr>
 									<tr>
@@ -80,10 +80,6 @@
 											value="${seleccion.getNombre()}" readonly /></td>
 									</tr>
 									
-									<tr>
-										<td  colspan="2"><p class="error">${mensaje}</p></td>
-
-									</tr>
 									<tr>
 										<td  colspan="2"><input type="submit"
 											class="bt btn btn-primary" value="Eliminar" /></td>

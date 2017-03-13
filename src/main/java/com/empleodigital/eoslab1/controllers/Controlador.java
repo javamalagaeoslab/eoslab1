@@ -314,7 +314,7 @@ public class Controlador {
 	@RequestMapping("/borrar")
 	public ModelAndView borraProducto(
 			//Recogemos los parámetros de la request
-			@RequestParam("id") int id,
+			@RequestParam("id") Integer id,
 			@RequestParam("descripcion_nombre") String descripcion_nombre,
 			RedirectAttributes flash){
 
@@ -325,16 +325,25 @@ public class Controlador {
 		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 
 		//Ejecuto la consuta
-		String sql="DELETE FROM productos WHERE id=?";
-		try {
-			jdbc.update(sql, new Object[]{id});
+		if (id!=null){
+			String sql="DELETE FROM productos WHERE id=?";
+			try {
+				jdbc.update(sql, new Object[]{id});
 
-			flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha eliminado con éxito");				
-			mav.setViewName("redirect:/");				
-		} catch (Exception e) {
+				flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha eliminado con éxito");				
+				mav.setViewName("redirect:/");				
+			} catch (Exception e) {
+				mav.setViewName("deleteProducto");
+				mav.addObject("mensaje", "El producto no se ha podido borrar");	
+			}
+			
+		}else{
 			mav.setViewName("deleteProducto");
-			mav.addObject("mensaje", "El producto no se ha podido borrar");	
+			mav.addObject("mensaje", "Indica el producto a eliminar");	
+			
 		}
+		
+		
 		return mav;
 
 	}
