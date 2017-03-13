@@ -81,11 +81,6 @@
 														<td ><input type="text" name="imagen"
 															value="${seleccion.getImagen()}" /></td>
 													</tr>
-												
-													<tr>
-														<td colspan="2"><p class="error">${mensaje}</p></td>
-
-													</tr>
 													<tr>
 														<td colspan="2"><input type="submit"
 															class="bt btn btn-primary" value="Modificar" /></td>
@@ -93,20 +88,12 @@
 													<tr>
 														<td colspan="2"><a href="cancelar"
 															class="bt btn btn-default " role="button">Cancelar</a>
-														</p></td>
+														</td>
 													</tr>
 												</table>
 												</div>
 
-
-
 											</form>
-
-
-
-
-
-
 
 										</div>
 									</div>
