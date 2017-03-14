@@ -12,7 +12,7 @@ import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Producto;
 
 @Controller
-public class EraseController {
+public class DeleteController {
 	
 	@RequestMapping("/eliminaProducto/{categoria}/{ref}/{nombre}/{id}/{nombreProducto}")
 	public ModelAndView deleteP(
