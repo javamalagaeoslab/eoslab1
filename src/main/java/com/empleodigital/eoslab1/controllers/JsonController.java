@@ -15,7 +15,7 @@ import com.empleodigital.eoslab1.beans.ObjetoJSON;
 import com.empleodigital.eoslab1.beans.Producto;
 
 @Controller
-public class ControllerJSON {
+public class JsonController {
 	
 	@RequestMapping(value="JSON", method=RequestMethod.GET)
 	@ResponseBody 
