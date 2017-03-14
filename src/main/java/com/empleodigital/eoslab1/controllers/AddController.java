@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Categoria;
 import com.empleodigital.eoslab1.beans.Producto;
@@ -73,7 +72,6 @@ public class AddController {
 			mav.addObject("mensaje","El producto que intentas añadir ya existe");
 		}
 		return mav;
-
 	}
 	
 	// This is a method to check if the product exist with references we selected or not
@@ -99,8 +97,6 @@ public class AddController {
 		return existe;
 	}
 	
-	
-	
 	// RequestMapping to add categories in our database
 	@RequestMapping("/agregarC")
 	public ModelAndView agregaCategoria(
@@ -120,6 +116,9 @@ public class AddController {
 			// we try our query, if all is OK we add redirect into page we specify, else return the error message
 			// and return to the same page or any page we tell in setviewname.
 			try {
+				if (imagenC.equals("")) {
+					imagenC = "default.png";
+				}
 				jdbc.update(sql, new Object[]{nombreC, imagenC});
 				flash.addFlashAttribute("mensaje", "La categoria " + nombreC + " se ha agregado con éxito");				
 				mav.setViewName("redirect:/");
@@ -133,7 +132,6 @@ public class AddController {
 		}
 		// return the mav object
 		return mav;
-
 	}
 	
 	// This is the method we are using in add category controller to check if exist this category or not
@@ -158,7 +156,4 @@ public class AddController {
 		}
 		return existe;
 	}
-	
-	
-
 }
