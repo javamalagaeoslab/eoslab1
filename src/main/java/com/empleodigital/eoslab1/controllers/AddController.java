@@ -14,14 +14,14 @@ import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Categoria;
 import com.empleodigital.eoslab1.beans.Producto;
 
-
+// We have to take care to add ALWAYS controller tag when we are using controllers
 @Controller
 public class AddController {
 	
-	
+	// RequestMapping to add new products
 	@RequestMapping("/agregarProducto")
 	public ModelAndView agregaProducto(
-			//Recogemos los parámetros de la request
+			// We take all parameters of the request that we added in formulary
 			@RequestParam("url") String url, 
 			@RequestParam("descripcion_nombre") String descripcion_nombre,
 			@RequestParam("ref") String ref,
@@ -50,16 +50,16 @@ public class AddController {
 			@RequestParam("categoria") String categoria,
 			RedirectAttributes flash){
 
-		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+		// We create an object mav to redirect in function of query results
 		ModelAndView mav = new ModelAndView();
 		if (!this.existeProducto(categoria, ref, descripcion_nombre)) {
-			//Conectamos con la BBDD usando la clase Conector creada anteriormente
+			// We connect with DataBase using the Connector class that we created previosly
 			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 
-			//Ejecuto la consuta
+			// Execute the query
 			String sql="INSERT INTO productos (url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, id_categorias) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-
+			// We are trying to update our request parameters into database
 			try {
 				jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria});
 				flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha agregado con éxito");				
@@ -76,6 +76,7 @@ public class AddController {
 
 	}
 	
+	// This is a method to check if the product exist with references we selected or not
 	private boolean existeProducto(@RequestParam("categoria") String categoria,@RequestParam("ref") String ref, @RequestParam("descripcion_nombre") String nombre){
 		boolean existe = false;
 		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
@@ -100,24 +101,24 @@ public class AddController {
 	
 	
 	
-	
+	// RequestMapping to add categories in our database
 	@RequestMapping("/agregarC")
 	public ModelAndView agregaCategoria(
-			//Recogemos los parámetros de la request
+			// We get all parameters of the request 
 			@RequestParam("nombreC") String nombreC, 
 			@RequestParam("imagenC") String imagenC,
 			RedirectAttributes flash){
-
-		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+		
+		// We create an object mav to redirect in function of query results
 		ModelAndView mav = new ModelAndView();
 		if (!this.existeCategoria(nombreC)) {
-
-			//Conectamos con la BBDD usando la clase Conector creada anteriormente
+			// We connect with database using the Connector class that we created previously
 			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
 
-			//Ejecuto la consuta
+			// We execute the query
 			String sql="INSERT INTO categorias (nombre, imagen) VALUES (?,?);";
-
+			// we try our query, if all is OK we add redirect into page we specify, else return the error message
+			// and return to the same page or any page we tell in setviewname.
 			try {
 				jdbc.update(sql, new Object[]{nombreC, imagenC});
 				flash.addFlashAttribute("mensaje", "La categoria " + nombreC + " se ha agregado con éxito");				
@@ -130,10 +131,12 @@ public class AddController {
 			mav.setViewName("addCategoria");
 			mav.addObject("mensaje","La categoría que intentas añadir ya existe");
 		}
+		// return the mav object
 		return mav;
 
 	}
 	
+	// This is the method we are using in add category controller to check if exist this category or not
 	private boolean existeCategoria(@RequestParam("nombre") String nombre){
 		boolean existe = false;
 		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
