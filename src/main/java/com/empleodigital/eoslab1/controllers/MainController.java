@@ -36,14 +36,14 @@ public class MainController {
 		String sql;
 		sql ="SELECT * FROM categorias;";
 
-		//Realizo la consulta que me devuelve todas las categorias disponibles
+		//We are doing the query that will return us all available categories
 		ArrayList<Categoria> lista = (ArrayList<Categoria>) jdbc.query(
 				sql,
 				new BeanPropertyRowMapper<Categoria>(Categoria.class));
 
-		//Creo un ArrayList con que contenga todos los productos que existan para cada categoría
+		// I create an arraylist that will contain all products we have in the specific category of our database
 		ArrayList<Producto> listaProductos = new ArrayList<Producto>();
-
+		// with this for, we are touring and registering all in "lista"
 		for (int i=0; i<lista.size();i++){
 
 			Categoria categoria= lista.get(i);
@@ -57,15 +57,16 @@ public class MainController {
 					);
 			categoria.setListaProducto(listaProductos);
 		}
-
+		// adding to lista
 		session.setAttribute("lista", lista);
+		// redirect to home jsp
 		mav.setViewName("home");
 		return mav;
 
 	}
 
 
-	//Dar de alta un producto
+	// redirect to "addProducto" when we are using action option in any of our jsp files
 	@RequestMapping("/altaProducto")
 	public String altaP(){
 
@@ -73,7 +74,7 @@ public class MainController {
 
 	}
 
-	//Actualizar un producto
+	// we update products
 	@RequestMapping("/modificaP")
 	public String updateP(){
 
@@ -81,7 +82,7 @@ public class MainController {
 
 	}
 
-	//Elimina un producto
+	//We erase products. This is a redirect Mapping that we are using in jsp
 	@RequestMapping("/eliminaProducto")
 	public String deleteP(){
 
@@ -91,7 +92,7 @@ public class MainController {
 
 	
 	
-	//Dar de alta una categoria
+	// We are adding a new category
 		@RequestMapping("/altaCategoria")
 		public String altaC(){
 
@@ -99,7 +100,7 @@ public class MainController {
 
 		}
 
-		//Eliminar una categoría
+		// we erase any of our category
 		@RequestMapping("/eliminaCategoria")
 		public String deleteC(){
 
