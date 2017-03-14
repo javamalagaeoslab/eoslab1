@@ -1,6 +1,7 @@
 package com.empleodigital.eoslab1.controllers;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Producto;
 
+@Controller
 public class EraseController {
 	
 	@RequestMapping("/eliminaProducto/{categoria}/{ref}/{nombre}/{id}/{nombreProducto}")

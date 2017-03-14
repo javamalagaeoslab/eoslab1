@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +14,8 @@ import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Categoria;
 import com.empleodigital.eoslab1.beans.Producto;
 
+
+@Controller
 public class AddController {
 	
 	
