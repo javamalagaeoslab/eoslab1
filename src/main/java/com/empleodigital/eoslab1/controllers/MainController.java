@@ -47,9 +47,7 @@ public class MainController {
 		for (int i=0; i<lista.size();i++){
 
 			Categoria categoria= lista.get(i);
-
 			sql ="SELECT * FROM productos WHERE id_categorias=?";
-
 			listaProductos=(ArrayList<Producto>) jdbc.query(
 					sql,
 					new BeanPropertyRowMapper<Producto>(Producto.class),
@@ -62,48 +60,35 @@ public class MainController {
 		// redirect to home jsp
 		mav.setViewName("home");
 		return mav;
-
 	}
-
 
 	// redirect to "addProducto" when we are using action option in any of our jsp files
 	@RequestMapping("/altaProducto")
 	public String altaP(){
-
 		return "addProducto";
-
 	}
 
 	// we update products
 	@RequestMapping("/modificaP")
 	public String updateP(){
-
 		return "updateProducto";
-
 	}
 
 	//We erase products. This is a redirect Mapping that we are using in jsp
 	@RequestMapping("/eliminaProducto")
 	public String deleteP(){
-
 		return "deleteProducto";
-
 	}
 
-	
-	
 	// We are adding a new category
 		@RequestMapping("/altaCategoria")
 		public String altaC(){
-
 			return "addCategoria";
-
 		}
 
 		// we erase any of our category
 		@RequestMapping("/eliminaCategoria")
 		public String deleteC(){
-
 			return "deleteCategoria";
 		}
 }
