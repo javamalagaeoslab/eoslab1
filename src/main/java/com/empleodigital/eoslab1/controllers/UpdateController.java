@@ -10,18 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.empleodigital.eoslab1.bbdd.Conector;
 import com.empleodigital.eoslab1.beans.Categoria;
 import com.empleodigital.eoslab1.beans.Producto;
-
 
 @Controller
 public class UpdateController {
 	
 	@RequestMapping("/actualizar")
 	public ModelAndView actualizaProducto(
-			//Recogemos los parámetros de la request
+			// We get the request parameters
 			@RequestParam("id") Integer id,
 			@RequestParam("url") String url, 
 			@RequestParam("descripcion_nombre") String descripcion_nombre,
@@ -50,21 +48,20 @@ public class UpdateController {
 			@RequestParam("fondo") String fondo,
 			@RequestParam("categoria") String categoria,
 			RedirectAttributes flash){
-
-		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+		// Create the objet to redirect
 		ModelAndView mav = new ModelAndView();
+		// if its not null begin the process
 		if (id!=null){
 			if (!this.existeProducto(categoria, id, ref, descripcion_nombre)) {
-
-				//Conectamos con la BBDD usando la clase Conector creada anteriormente
+				// Connect to database
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
-
-				//Ejecuto la consuta
+				// Execute query
 				String sql="UPDATE productos SET url=?, descripcion_nombre=?,ref=?, descripcion=?, tresd=?, bluetooth=?, fecha=?, cruz=?, horario=?, brillo=?, disponibilidad=?, voltaje=?,consumo=?, almacenamiento=?, trabajo=?, pixeles=?, fuente=?, control=?, tipografia=?, cpu=?, animacion=?, cantidad=?, ancho=?, alto=?, fondo=?, id_categorias=? WHERE id=?";
 				try {
 					jdbc.update(sql, new Object[]{url, descripcion_nombre,ref, descripcion, tresd, bluetooth, fecha, cruz, horario, brillo, disponibilidad, voltaje,consumo, almacenamiento, trabajo, pixeles, fuente, control, tipografia, cpu, animacion, cantidad, ancho, alto, fondo, categoria,id});
-
+					// use flash to hide the url
 					flash.addFlashAttribute("mensaje", "El producto " + descripcion_nombre + " se ha actualizado con éxito");				
+					// redirect to main controller
 					mav.setViewName("redirect:/");	
 				} catch (Exception e) {
 					mav.setViewName("updateProducto");
@@ -77,13 +74,11 @@ public class UpdateController {
 		}else{
 			mav.setViewName("updateProducto");
 			mav.addObject("mensaje", "Indica el producto a modificar");	
-
 		}
 		return mav;
-
 	}
 	
-	
+	// method to check if product exist or not
 	private boolean existeProducto(@RequestParam("categoria") String categoria,@RequestParam("id") int id, @RequestParam("ref") String ref, @RequestParam("descripcion_nombre") String nombre){
 		boolean existe = false;
 		JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
@@ -106,6 +101,7 @@ public class UpdateController {
 		return existe;
 	}
 	
+	// Mapping to change products with references that we are selecting
 	@RequestMapping("/modificaProducto/{categoria}/{ref}/{nombre}/{id}")
 	public ModelAndView updateP(
 			@PathVariable int categoria,
@@ -114,18 +110,14 @@ public class UpdateController {
 			@PathVariable int id,
 			RedirectAttributes flash){
 
-		
-		//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+		// We create the mav object to redirect in function of query results
 				ModelAndView mav = new ModelAndView();
-
-				//Conectamos con la BBDD usando la clase Conector creada anteriormente
+				//Connection to database
 				JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
-
-				//Ejecuto la consulta que me devuelve el producto a modificar
+				// Execute the query to return the product we will upload
 				String sql;
 				sql ="SELECT * FROM productos WHERE productos.id=?";
-
-				//Realizo la consulta que me devuelve el producto con esa referencia
+				//  Realize the query will return me the reference product
 				try {
 					Producto seleccion = jdbc.queryForObject(
 							sql,
@@ -133,65 +125,48 @@ public class UpdateController {
 							new Object[]{id});
 					flash.addFlashAttribute("seleccion", seleccion);
 				}catch (Exception e) {
-					
+					e.getMessage();
 				}
-
 		flash.addFlashAttribute("categoria",categoria);				
 		flash.addFlashAttribute("ref",ref);					
 		flash.addFlashAttribute("nombre",nombre);	
 		mav.setViewName("redirect:/modificaP");	
-
 		return mav;
-
 	}
 	
-	//Modificar una categoría
+	//Change a category
 		@RequestMapping("/modificaCategoria")
 		public ModelAndView updateP(){
-
-			//Creamos un objeto mav para redireccionar en función del resultado de la consulta
+			//Create the object
 			ModelAndView mav = new ModelAndView();
-
-
-			//Conectamos con la BBDD usando la clase Conector creada anteriormente
+			// Connect to database
 			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
-
-			//Creo y ejecuto las consultas. Los encapsulo porque sino devuelve ningún valor la consulta me peta
-			//el programa
+			// Create and execute the query. We encapsulate so wont return empty value and create conflicts
 			String sql;
 			sql ="SELECT * FROM categorias;";
-
-			//Realizo la consulta que me devuelve todas las categorias disponibles
+			// Realize the query that will return all available categories
 			List<Categoria> lista = jdbc.query(
 					sql,
 					new BeanPropertyRowMapper<Categoria>(Categoria.class),
 					new Object[]{}
 					);
-
 			mav.addObject("lista", lista);
 			mav.setViewName("updateCategoria");
 			return mav;
-
 		}
-		
+		// Mapping to upload categories
 		@RequestMapping("/actualizarC")
 		public ModelAndView actualizaCategoria(
-				//Recogemos los parámetros de la request
 				@RequestParam("id") Integer id,
 				@RequestParam("nombre") String nombre, 
 				@RequestParam("imagen") String imagen,
 				RedirectAttributes flash
 				){
-
 			ModelAndView mav = new ModelAndView();
-
 			if(id!=null){
-				//Creamos un objeto mav para redireccionar en función del resultado de la consulta
 				if (!this.existeCategoria(nombre, id)) {
-					//Conectamos con la BBDD usando la clase Conector creada anteriormente
 					JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
-
-					//Ejecuto la consuta
+					//Execute query
 					String sql="UPDATE categorias SET nombre=?, imagen=? WHERE id=?";
 					try {
 						jdbc.update(sql, new Object[]{nombre, imagen, id});
@@ -209,11 +184,10 @@ public class UpdateController {
 				mav.setViewName("updateCategoria");
 				mav.addObject("mensaje", "Indica la categoría a modificar");
 			}
-
 			return mav;
-
 		}
 
+		// this method will check if the category exist or not
 		private boolean existeCategoria(@RequestParam("nombre") String nombre, @RequestParam("id") int id){
 			boolean existe = false;
 			JdbcTemplate jdbc = new JdbcTemplate(Conector.getDataSource());
@@ -231,9 +205,7 @@ public class UpdateController {
 					existe = true;
 				}			
 			} catch (Exception e) {
-
 			}
 			return existe;
 		}
-
 }
