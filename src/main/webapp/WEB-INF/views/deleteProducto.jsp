@@ -56,7 +56,7 @@
 									</tr>
 									<tr>
 										<td class="tg-yw4l"><input type="submit"
-											class=" btn btn-primary" value="Enviar" role="button" /></td>
+											class=" btn btn-primary" value="Buscar" role="button" /></td>
 
 									</tr>
 
@@ -93,7 +93,7 @@
 
 													<tr>
 														<td class="tg-yw4l" colspan="2"><input type="submit"
-															class="bt btn btn-primary" role="button" value="Borrar" /></td>
+															class="bt btn btn-primary" role="button" value="Eliminar" /></td>
 													</tr>
 													<tr>
 														<td class="tg-yw4l" colspan="2"><a href="cancelar"

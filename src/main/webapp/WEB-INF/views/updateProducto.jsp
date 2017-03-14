@@ -36,7 +36,7 @@
 	</p>
 	<p>Referencia: <input type="text" name="ref" value="${ref}"/></p>
 	<p><input type="text" name="page" value="actualiza" hidden="hidden" /></p>
-	<p><input type="submit" class=" btn btn-primary" value="Enviar" role="button"/></p>
+	<p><input type="submit" class=" btn btn-primary" value="Buscar" role="button"/></p>
 
 </form>
  <div class="section margin">
@@ -99,7 +99,7 @@
       </div>
     </div>
     
-	  <p><input type="submit"class="bt btn btn-primary"  value="Actualizar" role="button"/></p>
+	  <p><input type="submit"class="bt btn btn-primary"  value="Modificar" role="button"/></p>
  <p><a href="cancelar" class="bt btn btn-default " role="button">Cancelar</a></p>
 	
 </form>

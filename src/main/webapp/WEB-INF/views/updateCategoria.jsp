@@ -20,7 +20,7 @@
 					<div class="row">
 						<div class="col-md-10 ">
 							<h2 class="title">Modificar Categoría</h2>
-							<h4>Indica el nombre de la categoría ha modificar</h4>
+							<h4>Indica el nombre de la categoría a modificar</h4>
 
 							<form action="buscacategoria" method="post">
 							<div class="table-responsive">
